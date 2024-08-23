@@ -60,7 +60,7 @@ const buttonStyles= StyleSheet.create ({
     },
     smallButton: {
       justifyContent: 'center',
-      height: 50,
+      height: 65,
       width: 110,
       marginHorizontal: 4,
     },

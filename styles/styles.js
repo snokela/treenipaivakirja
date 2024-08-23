@@ -1,28 +1,50 @@
 import { StyleSheet } from "react-native";
 
-const commonStyle = StyleSheet.create({
+const commonStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#a2f5fa',
+    backgroundColor: '#d9f4f6',
+    color: '#333333',
     alignItems: 'center',
     justifyContent: 'center',
   },
 });
 
-const customHeaderStyle = StyleSheet.create({
+const customHeaderStyles = StyleSheet.create({
   container: {
     alignItems: 'center',
   },
   title: {
     fontSize: 18,
     fontWeight: 'bold',
+    color:'#333333',
   },
   subtitle: {
     fontSize: 12,
     paddingBottom: 5,
+    color: '#6dabae',
+    // color: '#71c9cf',
   },
 });
 
-export { commonStyle , customHeaderStyle}
+const navStyles = StyleSheet.create ({
+  headerStyle: {
+    backgroundColor: '#d9f4f6',
+  },
+  headerTintColor: '#333333',
+  headerTitleStyle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  tabBarStyle: {
+    backgroundColor: '#a2d9dc',
+    // backgroundColor: '#71c9cf',
+  },
+  tabBarActiveTintColor: 'black',
+  // tabBarActiveTintColor: '#b28c23',
+  // tabBarInactiveTintColor: '#333333',
+});
+
+export { commonStyles , customHeaderStyles, navStyles}
 
 

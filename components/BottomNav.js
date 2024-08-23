@@ -6,6 +6,7 @@ import SettingsScreen from "./SettingsScreen"
 import WorkoutHistoryScreen from "./WorkoutHistoryScreen";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import CustomHeaderTitle from "./CustomHeaderTitle";
+import { navStyles } from "../styles/Styles";
 
 const Tab = createBottomTabNavigator();
 
@@ -16,16 +17,24 @@ const SETTINGS = 'Asetukset';
 
 export default function BottomNav() {
 
-  // const screenOpt = ()
   return (
     <NavigationContainer>
-      <Tab.Navigator>
+      <Tab.Navigator
+        screenOptions={{
+          headerStyle: navStyles.headerStyle,
+          headerTintColor: navStyles.headerTintColor,
+          headerTitleStyle: navStyles.headerTitleStyle,
+          tabBarStyle: navStyles.tabBarStyle,
+          tabBarActiveTintColor: navStyles.tabBarActiveTintColor,
+          tabBarInactiveTintColor: navStyles.tabBarInactiveTintColor,
+        }}
+      >
         <Tab.Screen
           name= "Home"
           component={HomeScreen}
           options={{
             headerTitle: () => <CustomHeaderTitle />,
-            tabBarIcon: ({color, size}) => (
+            tabBarIcon: ({ color, size }) => (
               <Icon name="home" color={color} size={size}/>
             ),
             tabBarLabel: () => null,

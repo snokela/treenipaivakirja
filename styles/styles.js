@@ -45,6 +45,16 @@ const navStyles = StyleSheet.create ({
   // tabBarInactiveTintColor: '#333333',
 });
 
-export { commonStyles , customHeaderStyles, navStyles}
+const ButtonStyles= StyleSheet.create ({
+    largeButton: {
+      height: 65,
+      width: 300,
+      // borderRadius: 10,
+      justifyContent: 'center',
+      marginBottom: 40,
+    },
+})
+
+export { commonStyles , customHeaderStyles, navStyles, ButtonStyles }
 
 

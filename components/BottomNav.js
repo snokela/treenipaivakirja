@@ -45,7 +45,7 @@ export default function BottomNav() {
         component={AddWorkoutScreen}
         options={{
           tabBarIcon: ({color, size}) => (
-            <Icon name="plus" color={color} size={size}/>
+            <Icon name="plus-circle-outline" color={color} size={size}/>
           ),
           tabBarLabel: () => null,
         }}

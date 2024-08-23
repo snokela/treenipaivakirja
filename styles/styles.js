@@ -21,11 +21,13 @@ const customHeaderStyles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     color:'#333333',
+    paddingTop:10,
   },
   subtitle: {
     fontSize: 12,
     paddingBottom: 5,
     color: '#6dabae',
+    paddingBottom: 10,
     // color: '#71c9cf',
   },
 });
@@ -36,7 +38,7 @@ const navStyles = StyleSheet.create ({
   },
   headerTintColor: '#333333',
   headerTitleStyle: {
-    fontSize: 18,
+    fontSize: 15,
     fontWeight: 'bold',
   },
   tabBarStyle: {

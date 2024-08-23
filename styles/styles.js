@@ -8,6 +8,9 @@ const commonStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  buttonRow: {
+    flexDirection: 'row',
+  },
 });
 
 const customHeaderStyles = StyleSheet.create({
@@ -45,7 +48,7 @@ const navStyles = StyleSheet.create ({
   // tabBarInactiveTintColor: '#333333',
 });
 
-const ButtonStyles= StyleSheet.create ({
+const buttonStyles= StyleSheet.create ({
     largeButton: {
       height: 65,
       width: 300,
@@ -53,8 +56,14 @@ const ButtonStyles= StyleSheet.create ({
       justifyContent: 'center',
       marginBottom: 40,
     },
+    smallButton: {
+      justifyContent: 'center',
+      height: 50,
+      width: 110,
+      marginHorizontal: 4,
+    },
 })
 
-export { commonStyles , customHeaderStyles, navStyles, ButtonStyles }
+export { commonStyles , customHeaderStyles, navStyles, buttonStyles }
 
 

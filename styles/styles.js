@@ -51,21 +51,36 @@ const navStyles = StyleSheet.create ({
 });
 
 const buttonStyles= StyleSheet.create ({
-    largeButton: {
-      height: 65,
-      width: 300,
-      // borderRadius: 10,
-      justifyContent: 'center',
-      marginBottom: 40,
-    },
-    smallButton: {
-      justifyContent: 'center',
-      height: 65,
-      width: 110,
-      marginHorizontal: 4,
-    },
+  largeButton: {
+    height: 65,
+    width: 300,
+    // borderRadius: 10,
+    justifyContent: 'center',
+    marginBottom: 40,
+  },
+  smallButton: {
+    justifyContent: 'center',
+    height: 65,
+    width: 110,
+    marginHorizontal: 4,
+  },
 })
 
-export { commonStyles , customHeaderStyles, navStyles, buttonStyles }
+const summaryCardStyles= StyleSheet.create ({
+  cardContent: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+  },
+  summaryItem: {
+    alignItems: 'center',
+    paddingLeft: 30,
+    paddingRight: 30,
+  },
+  summaryIcon: {
+    paddingBottom: 15,
+  }
+})
+
+export { commonStyles , customHeaderStyles, navStyles, buttonStyles, summaryCardStyles }
 
 

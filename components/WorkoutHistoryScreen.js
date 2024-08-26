@@ -22,6 +22,7 @@ export default function WorkoutHistoryScreen() {
       <SummaryCard
         distance={data.distance}
       />
+      <Divider />
       <View style={workoutHistoryScreenStyles.flatListContainer}>
         <FlatList
           data={data}

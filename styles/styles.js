@@ -123,6 +123,13 @@ const workoutHistoryScreenStyles= StyleSheet.create ({
   },
 })
 
-export { commonStyles , customHeaderStyles, navStyles, buttonStyles, summaryCardStyles, workoutHistoryScreenStyles, exerciseCardStyles }
+const dividerStyles = StyleSheet.create ({
+  divider: {
+    backgroundColor:'black',
+    marginVertical: 10,
+  },
+})
+
+export { commonStyles , customHeaderStyles, navStyles, buttonStyles, summaryCardStyles, workoutHistoryScreenStyles, exerciseCardStyles, dividerStyles }
 
 

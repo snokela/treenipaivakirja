@@ -3,8 +3,7 @@ import { Card } from "react-native-paper";
 import { summaryCardStyles, commonStyles, exerciseCardStyles } from "../styles/Styles";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-//iconame, date, distance ja duration tiedot pitäisi tulla propseina workouthistorysta
-export default function ExerciseCard() {
+export default function ExerciseCard({ iconName, date, distance, duration }) {
   return (
     <View style={commonStyles.container}>
       <Card

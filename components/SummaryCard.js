@@ -3,8 +3,11 @@ import { Card, Title } from "react-native-paper";
 import { summaryCardStyles, commonStyles } from "../styles/Styles";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
+// summarycard saa propseina distancen datamallista
+export default function SummaryCard({ distance }) {
 
-export default function SummaryCard() {
+  // tässä tarvii suorittaa laskutoimitus, jossa lasketaan harjoitusten summat
+
   return (
     <View style={summaryCardStyles.container}>
       <Card

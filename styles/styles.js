@@ -1,12 +1,14 @@
-import { StyleSheet } from "react-native";
+import { FlatList, StyleSheet } from "react-native";
+import SummaryCard from "../components/SummaryCard";
 
 const commonStyles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#d9f4f6',
     color: '#333333',
-    alignItems: 'center',
+    alignItems: 'stretch',
     justifyContent: 'center',
+    padding: 16,
   },
   buttonRow: {
     flexDirection: 'row',
@@ -53,7 +55,7 @@ const navStyles = StyleSheet.create ({
 const buttonStyles= StyleSheet.create ({
   largeButton: {
     height: 65,
-    width: 300,
+    // width: 300,
     // borderRadius: 10,
     justifyContent: 'center',
     marginBottom: 40,
@@ -67,9 +69,24 @@ const buttonStyles= StyleSheet.create ({
 })
 
 const summaryCardStyles= StyleSheet.create ({
+  container: {
+    ...commonStyles.container,
+    paddingBottom: 0,
+    justifyContent: 'flex-start',
+  },
+  summaryCard: {
+    backgroundColor: '#a2d9dc',
+  },
   cardContent: {
     flexDirection: 'row',
     justifyContent: 'space-around',
+  },
+  summaryCardTitle: {
+    justifyContent: 'center',
+    paddingTop:10,
+    paddingBottom: 20,
+    textAlign: 'center',
+    fontWeight: 'bold',
   },
   summaryItem: {
     alignItems: 'center',
@@ -78,9 +95,34 @@ const summaryCardStyles= StyleSheet.create ({
   },
   summaryIcon: {
     paddingBottom: 15,
-  }
+  },
 })
 
-export { commonStyles , customHeaderStyles, navStyles, buttonStyles, summaryCardStyles }
+const exerciseCardStyles= StyleSheet.create ({
+  exerciseCard: {
+    backgroundColor: '#bbdfe0',
+  },
+  rowContainer: {
+    flexDirection:'row',
+    textAlignVertical: 'center',
+  },
+  rowContainerText: {
+    paddingLeft: 20,
+  },
+})
+
+const workoutHistoryScreenStyles= StyleSheet.create ({
+  container: {
+    ...commonStyles.container,
+    justifyContent: 'flex-start',
+    padding: 0,
+  },
+  flatListContainer: {
+    flex: 3,
+    paddingBottom: 30,
+  },
+})
+
+export { commonStyles , customHeaderStyles, navStyles, buttonStyles, summaryCardStyles, workoutHistoryScreenStyles, exerciseCardStyles }
 
 

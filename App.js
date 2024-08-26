@@ -7,7 +7,7 @@ import BottomNav from './components/BottomNav.js';
 export default function App() {
   return (
     <BottomNav />
-    // <View style={commonStyle.container}>
+    // <View style={basicStyle.container}>
     //   <Text>Tähän luodaan treenipäiväkirja mobile-sovellus!</Text>
     //   {/* <StatusBar style="auto" /> */}
     // </View>

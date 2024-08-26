@@ -130,6 +130,21 @@ const dividerStyles = StyleSheet.create ({
   },
 })
 
-export { commonStyles , customHeaderStyles, navStyles, buttonStyles, summaryCardStyles, workoutHistoryScreenStyles, exerciseCardStyles, dividerStyles }
+const customSegmentedButtonStyles = StyleSheet.create ({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  buttons: {
+    backgroundColor: '#a2d9dc',
+    borderRadius: 20,
+    marginHorizontal: 2,
+    height: 40,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+})
+
+export { commonStyles , customHeaderStyles, navStyles, buttonStyles, summaryCardStyles, workoutHistoryScreenStyles, exerciseCardStyles, dividerStyles, customSegmentedButtonStyles }
 
 

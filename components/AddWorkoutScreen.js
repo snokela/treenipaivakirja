@@ -1,11 +1,13 @@
 import { Text, View } from "react-native";
 import { commonStyles, buttonStyles } from "../styles/Styles";
 import CustomButton from "./CustomButton";
+import CustomSegmentedButton from "./CustomSegmentedButton";
 
 export default function AddWorkoutScreen() {
   return (
     <View style={commonStyles.container}>
-      <Text>Valitse laji: </Text>
+      <CustomSegmentedButton />
+      {/* <Text>Valitse laji: </Text>
       <View style={commonStyles.buttonRow}>
         <CustomButton
           title="Juoksu"
@@ -31,7 +33,7 @@ export default function AddWorkoutScreen() {
           iconSize={18}
           style={buttonStyles.smallButton}
         />
-      </View>
+      </View> */}
       <Text>Tähän tulee harjoituksen lisäämisen sisältö eli matka, aika ja päivänmäärävalinnat!</Text>
       <CustomButton
         title="Lisää harjoitus"

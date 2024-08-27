@@ -171,6 +171,9 @@ const customRadioButtonStyles = StyleSheet.create ({
   },
   radioText: {
     paddingLeft: 13,
+  },
+  radioColor: {
+    color: '#81c2c5',
   }
 })
 

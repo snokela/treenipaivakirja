@@ -8,21 +8,19 @@ export default function CustomRadioButton() {
   const [radioval, setRadioval] = useState('km');
 
   return (
-    // <View style={customRadioButtonStyles.radioHeader}>
-    //   <Text style={customRadioButtonStyles.radioHeaderText}>Valitse harjoituksen yksiköt:</Text>
       <View style={customRadioButtonStyles.radioContainer}>
         <RadioButton.Group onValueChange={newValue => setRadioval(newValue)} value={radioval}>
           <View style={customRadioButtonStyles.radioStyle }>
             <RadioButton
               value='km'
-              color='#a2d9dc'
+              color={customRadioButtonStyles.radioColor.color}
             />
             <Text style={customRadioButtonStyles.radioText}>Kilometrit</Text>
           </View>
           <View style={customRadioButtonStyles.radioStyle}>
             <RadioButton
               value='mail'
-              color='#a2d9dc'
+              color={customRadioButtonStyles.radioColor.color}
             />
             <Text style={customRadioButtonStyles.radioText}>Mailit</Text>
           </View>

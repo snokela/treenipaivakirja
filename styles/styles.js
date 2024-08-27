@@ -143,9 +143,38 @@ const customSegmentedButtonStyles = StyleSheet.create ({
     alignItems: 'center',
     justifyContent: 'center',
   },
-
 })
 
-export { commonStyles , customHeaderStyles, navStyles, buttonStyles, summaryCardStyles, workoutHistoryScreenStyles, exerciseCardStyles, dividerStyles, customSegmentedButtonStyles }
+const customRadioButtonStyles = StyleSheet.create ({
+  // radioHeader: {
+  //   borderBlockColor: '#333333',
+  //   borderWidth: 1,
+  //   borderRadius: 10,
+  //   paddingBottom: 80,
+  //   paddingTop: 80,
+  // },
+  // radioHeaderText: {
+  //   fontWeight: 'bold',
+  // },
+  radioContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderBlockColor: '#333333',
+    borderWidth: 1,
+    borderRadius: 10,
+    paddingBottom: 40,
+    paddingTop: 40,
+  },
+  radioStyle: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  radioText: {
+    paddingLeft: 13,
+  }
+})
+
+
+export { commonStyles , customHeaderStyles, navStyles, buttonStyles, summaryCardStyles, workoutHistoryScreenStyles, exerciseCardStyles, dividerStyles, customSegmentedButtonStyles, customRadioButtonStyles }
 
 

@@ -120,7 +120,11 @@ const AddWorkoutScreenStyles= StyleSheet.create ({
   formContainer: {
     flex: 3,
   },
-  input: {
+  distanceInput: {
+    paddingTop: 25,
+    paddingBottom: 25,
+  },
+  timeInput: {
     paddingBottom: 25,
   },
   date: {
@@ -128,6 +132,7 @@ const AddWorkoutScreenStyles= StyleSheet.create ({
   },
   button: {
     flex: 2,
+    paddingTop: 100,
   },
 })
 

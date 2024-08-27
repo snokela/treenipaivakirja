@@ -15,13 +15,13 @@ export default function AddWorkoutScreen({ navigation}) {
         </View>
         <View style={AddWorkoutScreenStyles.formContainer}>
           <CustomDivider />
-          <View style={AddWorkoutScreenStyles.input}>
+          <View style={AddWorkoutScreenStyles.distanceInput}>
             <CustomTextInput
               mode='outlined'
               label='Matka km/mails'
             />
           </View>
-          <View style={AddWorkoutScreenStyles.input}>
+          <View style={AddWorkoutScreenStyles.timeInput}>
             <CustomTextInput
               mode='outlined'
               label='Aika/min'

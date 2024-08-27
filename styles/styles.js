@@ -1,5 +1,5 @@
+// primary color: '#a2d9dc'
 import { FlatList, StyleSheet } from "react-native";
-import SummaryCard from "../components/SummaryCard";
 
 const commonStyles = StyleSheet.create({
   container: {
@@ -28,7 +28,7 @@ const customHeaderStyles = StyleSheet.create({
   subtitle: {
     fontSize: 12,
     paddingBottom: 5,
-    color: '#6dabae',
+    color: '#77b8bc',
     paddingBottom: 10,
     // color: '#71c9cf',
   },
@@ -45,7 +45,7 @@ const navStyles = StyleSheet.create ({
   },
   tabBarStyle: {
     backgroundColor: '#a2d9dc',
-    // backgroundColor: '#71c9cf',
+    // backgroundColor: theme.colors.primary,
   },
   tabBarActiveTintColor: 'black',
   // tabBarActiveTintColor: '#b28c23',
@@ -100,7 +100,7 @@ const summaryCardStyles= StyleSheet.create ({
 
 const exerciseCardStyles= StyleSheet.create ({
   exerciseCard: {
-    backgroundColor: '#bbdfe0',
+    backgroundColor: '#cfeff1',
   },
   rowContainer: {
     flexDirection:'row',
@@ -133,7 +133,7 @@ const dividerStyles = StyleSheet.create ({
 const customSegmentedButtonStyles = StyleSheet.create ({
   container: {
     flex: 1,
-    alignItems: 'center',
+    // alignItems: 'center',
   },
   buttons: {
     backgroundColor: '#a2d9dc',
@@ -143,6 +143,7 @@ const customSegmentedButtonStyles = StyleSheet.create ({
     alignItems: 'center',
     justifyContent: 'center',
   },
+
 })
 
 export { commonStyles , customHeaderStyles, navStyles, buttonStyles, summaryCardStyles, workoutHistoryScreenStyles, exerciseCardStyles, dividerStyles, customSegmentedButtonStyles }

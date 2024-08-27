@@ -1,16 +1,18 @@
 import { SafeAreaView } from "react-native";
-import { SegmentedButtons } from "react-native-paper";
+import { SegmentedButtons, useTheme } from "react-native-paper";
 import { customSegmentedButtonStyles } from "../styles/Styles";
 import { useState } from "react";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+// import { theme } from '../styles/Theme';
+// import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 export default function CustomSegmentedButton() {
   const [value, setValue] =  useState('')
+//   const theme = useTheme();
 
   return (
     <SafeAreaView style={customSegmentedButtonStyles.container}>
+    {/* <SafeAreaView> */}
       <SegmentedButtons
-        theme={ {colors: {primary: 'green'} }}
         style={customSegmentedButtonStyles.buttons}
         value={value}
         onValueChange={setValue}
@@ -18,7 +20,7 @@ export default function CustomSegmentedButton() {
         {
           value:'run',
           label: 'Juoksu',
-          icon: 'run-fast'
+          icon: 'run-fast',
         },
         {
           value: 'bike',
@@ -29,6 +31,7 @@ export default function CustomSegmentedButton() {
           value: 'walk',
           label: 'Kävely',
           icon: 'walk',
+
         },
        ]}
       />

@@ -10,7 +10,8 @@ export default function CustomButton({ title, onPress, mode , icon, style, iconS
       onPress={onPress}
       contentStyle={{ flexDirection: 'row-reverse', justifyContent: 'center', paddingVertical: 15 } }
       icon= {() => <Icon name={icon} size={iconSize} />}
-      buttonColor= "#a2d9dc"
+      // buttonColor= "#a2d9dc"
+      // ULKOISTA TÄMÄ TYYLI stylesiin!!!
       textColor="black"
       style={style}
     >

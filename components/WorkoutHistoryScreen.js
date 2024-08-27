@@ -4,6 +4,7 @@ import SummaryCard from "../components/SummaryCard";
 import { FlatList } from "react-native";
 import ExerciseCard from "./ExerciseCard";
 import { Divider } from "react-native-paper";
+import CustomDivider from "./CustomDivider";
 
 export default function WorkoutHistoryScreen() {
 
@@ -22,7 +23,8 @@ export default function WorkoutHistoryScreen() {
       <SummaryCard
         distance={data.distance}
       />
-      <Divider />
+      {/* <Divider /> */}
+      <CustomDivider />
       <View style={workoutHistoryScreenStyles.flatListContainer}>
         <FlatList
           data={data}

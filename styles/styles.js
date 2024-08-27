@@ -30,7 +30,6 @@ const customHeaderStyles = StyleSheet.create({
     paddingBottom: 5,
     color: '#77b8bc',
     paddingBottom: 10,
-    // color: '#71c9cf',
   },
 });
 
@@ -111,6 +110,27 @@ const exerciseCardStyles= StyleSheet.create ({
   },
 })
 
+const AddWorkoutScreenStyles= StyleSheet.create ({
+  segmentContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignContent: 'center',
+    marginTop: 40,
+  },
+  formContainer: {
+    flex: 3,
+  },
+  input: {
+    paddingBottom: 25,
+  },
+  date: {
+    paddingBottom: 25,
+  },
+  button: {
+    flex: 2,
+  },
+})
+
 const workoutHistoryScreenStyles= StyleSheet.create ({
   container: {
     ...commonStyles.container,
@@ -145,17 +165,16 @@ const customSegmentedButtonStyles = StyleSheet.create ({
   },
 })
 
+const customTextInputStyles = StyleSheet.create ({
+  textInput : {
+    backgroundColor: 'white',
+  },
+  activeOutline: {
+    color: '#77b8bc',
+  },
+})
+
 const customRadioButtonStyles = StyleSheet.create ({
-  // radioHeader: {
-  //   borderBlockColor: '#333333',
-  //   borderWidth: 1,
-  //   borderRadius: 10,
-  //   paddingBottom: 80,
-  //   paddingTop: 80,
-  // },
-  // radioHeaderText: {
-  //   fontWeight: 'bold',
-  // },
   radioContainer: {
     justifyContent: 'center',
     alignItems: 'center',
@@ -178,6 +197,8 @@ const customRadioButtonStyles = StyleSheet.create ({
 })
 
 
-export { commonStyles , customHeaderStyles, navStyles, buttonStyles, summaryCardStyles, workoutHistoryScreenStyles, exerciseCardStyles, dividerStyles, customSegmentedButtonStyles, customRadioButtonStyles }
+
+
+export { commonStyles , customHeaderStyles, workoutHistoryScreenStyles, navStyles, buttonStyles, summaryCardStyles, AddWorkoutScreenStyles, exerciseCardStyles, dividerStyles, customSegmentedButtonStyles, customRadioButtonStyles, customTextInputStyles }
 
 

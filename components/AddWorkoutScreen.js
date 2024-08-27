@@ -1,48 +1,46 @@
 import { Text, View } from "react-native";
-import { commonStyles, buttonStyles } from "../styles/Styles";
+import { commonStyles, buttonStyles, AddWorkoutScreenStyles } from "../styles/Styles";
 import CustomButton from "./CustomButton";
 import CustomSegmentedButton from "./CustomSegmentedButton";
+import CustomTextInput from "./CustomTextInput";
+import CustomDivider from "./CustomDivider";
 
-export default function AddWorkoutScreen() {
+
+export default function AddWorkoutScreen({ navigation}) {
   return (
     <View style={commonStyles.container}>
-      <CustomSegmentedButton />
-      {/* <Text>Valitse laji: </Text>
-      <View style={commonStyles.buttonRow}>
+      <View style={AddWorkoutScreenStyles.segmentContainer}>
+        <CustomSegmentedButton />
+      </View>
+      <View style={AddWorkoutScreenStyles.formContainer}>
+        <CustomDivider />
+        <View style={AddWorkoutScreenStyles.input}>
+          <CustomTextInput
+            mode='outlined'
+            label='Matka km/mails'
+          />
+        </View>
+        <View style={AddWorkoutScreenStyles.input}>
+          <CustomTextInput
+            mode='outlined'
+            label='Aika/min'
+          />
+        </View>
+        <View style={AddWorkoutScreenStyles.date}>
+          <Text>TÄHÄN TULEE VIELÄ PÄVÄNMÄÄRÄVALINTA</Text>
+        </View>
+        <CustomDivider />
+      </View>
+      <View style={AddWorkoutScreenStyles.button}>
         <CustomButton
-          title="Juoksu"
+          title="Lisää harjoitus"
           mode = "elevated"
-          onPress={() => console.log('Valittu juoksuharjoitus')}
-          icon="run-fast"
-          iconSize={18}
-          style={buttonStyles.smallButton}
+          onPress={() => navigation.navigate('Harjoitushistoria')}
+          // icon="plus"
+          icon="plus-circle-outline"
+          style={buttonStyles.largeButton}
         />
-        <CustomButton
-          title="Pyöräily"
-          mode = "elevated"
-          onPress={() => console.log('Valittu pyöräilyharjoitus')}
-          icon="bike"
-          iconSize={18}
-          style={buttonStyles.smallButton}
-        />
-         <CustomButton
-          title="Kävely"
-          mode = "elevated"
-          onPress={() => console.log('Valittu kävelyharjoitus')}
-          icon="walk"
-          iconSize={18}
-          style={buttonStyles.smallButton}
-        />
-      </View> */}
-      <Text>Tähän tulee harjoituksen lisäämisen sisältö eli matka, aika ja päivänmäärävalinnat!</Text>
-      <CustomButton
-        title="Lisää harjoitus"
-        mode = "elevated"
-        onPress={() => navigation.navigate('Lisää harjoitus')}
-        // icon="plus"
-        icon="plus-circle-outline"
-        style={buttonStyles.largeButton}
-      />
+      </View>
     </View>
   );
 }

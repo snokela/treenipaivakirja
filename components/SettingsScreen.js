@@ -10,7 +10,7 @@ export default function SettingsScreen() {
   return (
     <View style={commonStyles.container}>
       <View>
-        <Text style={commonStyles.infoText}>Valitse harjoituksen yksiköt:</Text>
+        <Text style={commonStyles.infoText}>Valitse yksiköt:</Text>
         <CustomRadioButton setValue={setUnit} value={unit} />
       </View>
     </View>

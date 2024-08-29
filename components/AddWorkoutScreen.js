@@ -7,6 +7,7 @@ import CustomDivider from "./CustomDivider";
 import { useState } from "react";
 
 
+
 export default function AddWorkoutScreen({ navigation}) {
   // tilanhallinnat:
   const [selectedExercise, setSelectedExercise] =  useState('');
@@ -38,7 +39,8 @@ export default function AddWorkoutScreen({ navigation}) {
             />
           </View>
           <View style={AddWorkoutScreenStyles.date}>
-            <Text>TÄHÄN TULEE VIELÄ PÄVÄNMÄÄRÄVALINTA</Text>
+            {/* <Text>TÄHÄN TULEE VIELÄ PÄVÄNMÄÄRÄVALINTA</Text> */}
+          {/* <CustomCalendar /> */}
           </View>
           <CustomDivider />
         </View>

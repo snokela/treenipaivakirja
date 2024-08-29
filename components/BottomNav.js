@@ -11,7 +11,7 @@ import { navStyles } from "../styles/Styles";
 const Tab = createBottomTabNavigator();
 
 // const HOME = 'Treenipäiväkirja';
-const ADDWORKOUT = 'Lisää harjoitus';
+const ADDWORKOUT = 'Harjoituksen lisääminen';
 const WORKOUTHISTORY = 'Harjoitushistoria';
 const SETTINGS = 'Asetukset';
 

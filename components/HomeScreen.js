@@ -11,8 +11,7 @@ export default function HomeScreen() {
       <CustomButton
         title="Lisää harjoitus"
         mode = "elevated"
-        onPress={() => navigation.navigate('Lisää harjoitus')}
-        // icon="plus"
+        onPress={() => navigation.navigate('Harjoituksen lisääminen')}
         icon="plus-circle-outline"
         style={buttonStyles.largeButton}
       />

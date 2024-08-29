@@ -13,6 +13,13 @@ const commonStyles = StyleSheet.create({
   buttonRow: {
     flexDirection: 'row',
   },
+  infoText: {
+    justifyContent: 'center',
+    paddingTop:10,
+    paddingBottom: 20,
+    textAlign: 'center',
+    fontWeight: 'bold',
+  }
 });
 
 const customHeaderStyles = StyleSheet.create({
@@ -52,6 +59,12 @@ const navStyles = StyleSheet.create ({
 });
 
 const buttonStyles= StyleSheet.create ({
+  content: {
+    flexDirection: 'row-reverse',
+    justifyContent: 'center',
+    paddingVertical: 15
+  },
+  textColor: 'black',
   largeButton: {
     height: 65,
     // width: 300,
@@ -80,13 +93,13 @@ const summaryCardStyles= StyleSheet.create ({
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
-  summaryCardTitle: {
-    justifyContent: 'center',
-    paddingTop:10,
-    paddingBottom: 20,
-    textAlign: 'center',
-    fontWeight: 'bold',
-  },
+  // summaryCardTitle: {
+  //   justifyContent: 'center',
+  //   paddingTop:10,
+  //   paddingBottom: 20,
+  //   textAlign: 'center',
+  //   fontWeight: 'bold',
+  // },
   summaryItem: {
     alignItems: 'center',
     paddingLeft: 30,

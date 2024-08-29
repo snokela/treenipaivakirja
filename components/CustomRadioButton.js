@@ -3,13 +3,13 @@ import { Text, View } from "react-native";
 import { RadioButton } from "react-native-paper";
 import { customRadioButtonStyles } from "../styles/Styles";
 
-export default function CustomRadioButton() {
+export default function CustomRadioButton({ setValue, value }) {
 
-  const [radioval, setRadioval] = useState('km');
+  // const [radioval, setRadioval] = useState('km');
 
   return (
       <View style={customRadioButtonStyles.radioContainer}>
-        <RadioButton.Group onValueChange={newValue => setRadioval(newValue)} value={radioval}>
+        <RadioButton.Group onValueChange={newValue => setValue(newValue)} value={value}>
           <View style={customRadioButtonStyles.radioStyle }>
             <RadioButton
               value='km'

@@ -1,5 +1,6 @@
 import { Button } from "react-native-paper"
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { buttonStyles } from "../styles/Styles";
 // import { ButtonStyles } from "../styles/Styles";
 
 
@@ -8,11 +9,11 @@ export default function CustomButton({ title, onPress, mode , icon, style, iconS
     <Button
       mode={mode}
       onPress={onPress}
-      contentStyle={{ flexDirection: 'row-reverse', justifyContent: 'center', paddingVertical: 15 } }
+      contentStyle={buttonStyles.content}
       icon= {() => <Icon name={icon} size={iconSize} />}
       // buttonColor= "#a2d9dc"
       // ULKOISTA TÄMÄ TYYLI stylesiin!!!
-      textColor="black"
+      textColor={buttonStyles.textColor}
       style={style}
     >
       {title}

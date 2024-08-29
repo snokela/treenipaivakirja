@@ -4,27 +4,37 @@ import CustomButton from "./CustomButton";
 import CustomSegmentedButton from "./CustomSegmentedButton";
 import CustomTextInput from "./CustomTextInput";
 import CustomDivider from "./CustomDivider";
+import { useState } from "react";
 
 
 export default function AddWorkoutScreen({ navigation}) {
+  // tilanhallinnat:
+  const [selectedExercise, setSelectedExercise] =  useState('');
+  const [distance, setDistance] = useState('');
+  const [time, setTime] = useState('');
+  // Tähän tila vielä valitulle päivänmäärälle
+  // const [date, setDate] = useState('');
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <View style={commonStyles.container}>
         <View style={AddWorkoutScreenStyles.segmentContainer}>
-          <CustomSegmentedButton />
+          <CustomSegmentedButton value={selectedExercise} setValue={setSelectedExercise} />
         </View>
         <View style={AddWorkoutScreenStyles.formContainer}>
           <CustomDivider />
           <View style={AddWorkoutScreenStyles.distanceInput}>
             <CustomTextInput
-              mode='outlined'
+              value={distance}
               label='Matka km/mails'
+              setValue={setDistance}
             />
           </View>
           <View style={AddWorkoutScreenStyles.timeInput}>
             <CustomTextInput
-              mode='outlined'
+              value={time}
               label='Aika/min'
+              setValue={setTime}
             />
           </View>
           <View style={AddWorkoutScreenStyles.date}>

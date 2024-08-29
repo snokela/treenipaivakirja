@@ -1,20 +1,17 @@
-import { useState } from "react"
 import { View } from "react-native";
 import { TextInput } from "react-native-paper";
 import { customTextInputStyles } from '../styles/Styles'
 
-export default function  CustomTextInput({ label, mode,  }) {
-
-  const [text, setText] = useState('');
+export default function  CustomTextInput({ label, value, setValue }) {
 
   return (
     <View>
       <TextInput
         style={customTextInputStyles.textInput}
-        mode={mode}
+        mode='outlined'
         label={label}
-        value={text}
-        onChangeText={text => setText(text)}
+        value={value}
+        onChangeText={setValue}
         keyboardType="numeric"
         activeOutlineColor={customTextInputStyles.activeOutline.color}
       />

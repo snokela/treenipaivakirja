@@ -14,7 +14,7 @@ export default function SummaryCard({ distance }) {
         mode="elevated"
         style={summaryCardStyles.summaryCard}
         >
-        <Text style={summaryCardStyles.summaryCardTitle}>
+        <Text style={commonStyles.infoText}>
           Harjoitusten kokonaismatkat
         </Text>
         <Card.Content style={summaryCardStyles.cardContent}>

@@ -1,12 +1,12 @@
 import { SafeAreaView } from "react-native";
 import { SegmentedButtons, useTheme } from "react-native-paper";
 import { customSegmentedButtonStyles } from "../styles/Styles";
-import { useState } from "react";
+// import { useState } from "react";
 // import { theme } from '../styles/Theme';
 // import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-export default function CustomSegmentedButton() {
-  const [value, setValue] =  useState('')
+export default function CustomSegmentedButton({ value, setValue }) {
+  // const [value, setValue] =  useState('')
 //   const theme = useTheme();
 
   return (

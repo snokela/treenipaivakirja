@@ -7,13 +7,14 @@ import { customCalendarStyles } from "../styles/Styles";
 
 export default function CustomCalendar({ date, setDate }) {
   const [visible, setVisible] = useState(false);
+  const [formattedDate, setFormattedDate] = useState('');
 
   function dateSelected(day) {
     // console.log(day);
     setVisible(false);
     // const formatted = day.day + '.' + day.month + '.' + day.year;
     const formatted = `${day.day}.${day.month}.${day.year}`;
-    setDate(formatted);
+    setFormattedDate(formatted);
   }
 
   return (
@@ -31,7 +32,7 @@ export default function CustomCalendar({ date, setDate }) {
       <Pressable onPress={() => setVisible(true)}>
         <View style={customCalendarStyles.calendarButtonContainer}>
         <AntDesign name="calendar" size={20} color="black" />
-        <Text style={customCalendarStyles.calendarButtonText}>{date ? date : 'Valitse päivä'}</Text>
+        <Text style={customCalendarStyles.calendarButtonText}>{formattedDate ? formattedDate : 'Valitse päivä'}</Text>
         </View>
       </Pressable>
     </View>

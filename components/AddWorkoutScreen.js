@@ -52,6 +52,7 @@ useEffect(() => {
 // console.log(time)
 
   return (
+    // tähän touchablewithoutfeedback, jotta iOsissa keyboard saadaan koskettamalla poistumaan
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <View style={commonStyles.container}>
         <View style={AddWorkoutScreenStyles.segmentContainer}>

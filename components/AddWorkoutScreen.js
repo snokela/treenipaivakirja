@@ -4,7 +4,7 @@ import CustomButton from "./CustomButton";
 import CustomSegmentedButton from "./CustomSegmentedButton";
 import CustomTextInput from "./CustomTextInput";
 import CustomDivider from "./CustomDivider";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CustomCalendar from "./CustomCalendar";
 
 
@@ -16,7 +16,31 @@ export default function AddWorkoutScreen({ navigation}) {
   const [time, setTime] = useState('');
   // Tähän tilaan formatoitu date customCalendarista
   const [date, setDate] = useState('');
-  const [isButtonDisabled, setIsButtonDisabled] = useState(true)
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+
+ const validateFields = () => {
+  console.log(isButtonDisabled)
+    if (
+      selectedExercise.trim() !== '' &&
+      distance.trim() !== '' && parseFloat(distance) > 0 &&
+      time.trim() !== '' && parseFloat(time) > 0 &&
+      date.trim() !== ''
+    ) {
+      console.log('validoinnit täyttyy, joten tullaan ekaan iffiin')
+      setIsButtonDisabled(false);
+      console.log(isButtonDisabled)
+    } else {
+      console.log('validoinnit ei täyty, joten tullaan tokaan iffiin')
+     setIsButtonDisabled(true);
+     console.log(isButtonDisabled)
+    }
+ };
+
+//  useEffect suoritetaan, mikäli jonkin kentän arvo muuttuu
+useEffect(() => {
+  console.log('ollaan useEffectissä')
+  validateFields();
+}, [selectedExercise, distance, time, date]);
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>

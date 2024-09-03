@@ -4,15 +4,14 @@ import { buttonStyles } from "../styles/Styles";
 // import { ButtonStyles } from "../styles/Styles";
 
 
-export default function CustomButton({ title, onPress, mode , icon, style, iconSize=30 }) {
+export default function CustomButton({ title, onPress, mode , icon, style, iconSize=30, disabled = false}) {
   return (
     <Button
       mode={mode}
       onPress={onPress}
       contentStyle={buttonStyles.content}
       icon= {() => <Icon name={icon} size={iconSize} />}
-      // buttonColor= "#a2d9dc"
-      // ULKOISTA TÄMÄ TYYLI stylesiin!!!
+      disabled={disabled}
       textColor={buttonStyles.textColor}
       style={style}
     >

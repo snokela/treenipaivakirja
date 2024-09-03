@@ -3,7 +3,7 @@ import { Text } from "react-native";
 import { Modal, Pressable, View } from "react-native";
 import { Calendar } from "react-native-calendars";
 import AntDesign from '@expo/vector-icons/AntDesign';
-import { customCalendarStyles } from "../styles/Styles";
+import { customCalendarStyles } from "../styles/CalendarStyles";
 
 export default function CustomCalendar({ date, setDate }) {
   const [visible, setVisible] = useState(false);

@@ -16,6 +16,7 @@ export default function AddWorkoutScreen({ navigation}) {
   const [time, setTime] = useState('');
   // Tähän tilaan formatoitu date customCalendarista
   const [date, setDate] = useState('');
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true)
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
@@ -51,6 +52,7 @@ export default function AddWorkoutScreen({ navigation}) {
           <CustomButton
             title="Lisää harjoitus"
             mode = "elevated"
+            disabled={isButtonDisabled}
             onPress={() => navigation.navigate('Harjoitushistoria')}
             icon="plus-circle-outline"
             style={buttonStyles.largeButton}

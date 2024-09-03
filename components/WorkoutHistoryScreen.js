@@ -31,7 +31,7 @@ export default function WorkoutHistoryScreen() {
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
           <ExerciseCard
-          // siirretään nämä tiedot propseina ExerciseCardille
+          // siirretään nämä tiedot propseina ExerciseCardille//tarviiko tästä tehdä erillistä itemsiä
             iconName={item.iconName}
             date={item.date}
             distance={item.distance}

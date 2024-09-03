@@ -5,6 +5,7 @@ import CustomSegmentedButton from "./CustomSegmentedButton";
 import CustomTextInput from "./CustomTextInput";
 import CustomDivider from "./CustomDivider";
 import { useState } from "react";
+import CustomCalendar from "./CustomCalendar";
 
 
 
@@ -40,7 +41,7 @@ export default function AddWorkoutScreen({ navigation}) {
           </View>
           <View style={AddWorkoutScreenStyles.date}>
             {/* <Text>TÄHÄN TULEE VIELÄ PÄVÄNMÄÄRÄVALINTA</Text> */}
-          {/* <CustomCalendar /> */}
+          <CustomCalendar />
           </View>
           <CustomDivider />
         </View>

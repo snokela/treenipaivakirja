@@ -14,8 +14,8 @@ export default function AddWorkoutScreen({ navigation}) {
   const [selectedExercise, setSelectedExercise] =  useState('');
   const [distance, setDistance] = useState('');
   const [time, setTime] = useState('');
-  // Tähän tila vielä valitulle päivänmäärälle
-  // const [date, setDate] = useState('');
+  // Tähän tilaan formatoitu date customCalendarista
+  const [date, setDate] = useState('');
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
@@ -40,8 +40,10 @@ export default function AddWorkoutScreen({ navigation}) {
             />
           </View>
           <View style={AddWorkoutScreenStyles.date}>
-            {/* <Text>TÄHÄN TULEE VIELÄ PÄVÄNMÄÄRÄVALINTA</Text> */}
-          <CustomCalendar />
+          <CustomCalendar
+            value={date}
+            setDate={setDate}
+          />
           </View>
           <CustomDivider />
         </View>
@@ -50,7 +52,6 @@ export default function AddWorkoutScreen({ navigation}) {
             title="Lisää harjoitus"
             mode = "elevated"
             onPress={() => navigation.navigate('Harjoitushistoria')}
-            // icon="plus"
             icon="plus-circle-outline"
             style={buttonStyles.largeButton}
           />

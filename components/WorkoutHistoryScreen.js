@@ -3,7 +3,6 @@ import { workoutHistoryScreenStyles } from "../styles/Styles";
 import SummaryCard from "../components/SummaryCard";
 import { FlatList } from "react-native";
 import ExerciseCard from "./ExerciseCard";
-import { Divider } from "react-native-paper";
 import CustomDivider from "./CustomDivider";
 
 export default function WorkoutHistoryScreen() {
@@ -22,8 +21,8 @@ export default function WorkoutHistoryScreen() {
     <View style={workoutHistoryScreenStyles.container}>
       <SummaryCard
         distance={data.distance}
+        //myös yksiköt täytyy siirtää summarycardiin
       />
-      {/* <Divider /> */}
       <CustomDivider />
       <View style={workoutHistoryScreenStyles.flatListContainer}>
         <FlatList
@@ -31,7 +30,7 @@ export default function WorkoutHistoryScreen() {
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
           <ExerciseCard
-          // siirretään nämä tiedot propseina ExerciseCardille//tarviiko tästä tehdä erillistä itemsiä
+          // siirretään nämä tiedot propseina ExerciseCardille, lisäksi yksiköt täytyy siirtää
             iconName={item.iconName}
             date={item.date}
             distance={item.distance}

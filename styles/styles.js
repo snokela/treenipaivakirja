@@ -1,5 +1,7 @@
 // primary color: '#a2d9dc'
-import { FlatList, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
+import CustomCalendar from "../components/CustomCalendar";
+import { Calendar } from "react-native-calendars";
 
 const commonStyles = StyleSheet.create({
   container: {
@@ -214,9 +216,37 @@ const customRadioButtonStyles = StyleSheet.create ({
   }
 })
 
+const calendarTheme = StyleSheet.create ({
+  arrowColor: '#4da7ae',
+  todayTextColor:'#4da7ae',
+})
+
+const customCalendarStyles =StyleSheet.create ({
+  calendar: {
+    borderWidth: 1,
+    margin: 15,
+    marginTop: 230,
+  },
+  calendarTheme: {
+    arrowColor: '#4da7ae',
+    todayTextColor:'#4da7ae'
+  },
+  calendarButtonContainer: {
+    flexDirection: "row",
+    alignItems:'center',
+    borderWidth: 1,
+    borderColor:'grey',
+    borderRadius: 5,
+    backgroundColor:'white',
+    padding: 15,
+  },
+  calendarButtonText: {
+    paddingLeft: 15,
+  }
+})
 
 
 
-export { commonStyles , customHeaderStyles, workoutHistoryScreenStyles, navStyles, buttonStyles, summaryCardStyles, AddWorkoutScreenStyles, exerciseCardStyles, dividerStyles, customSegmentedButtonStyles, customRadioButtonStyles, customTextInputStyles }
+export { commonStyles , customHeaderStyles, workoutHistoryScreenStyles, navStyles, buttonStyles, summaryCardStyles, AddWorkoutScreenStyles, exerciseCardStyles, dividerStyles, customSegmentedButtonStyles, customRadioButtonStyles, customTextInputStyles, customCalendarStyles }
 
 

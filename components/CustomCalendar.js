@@ -8,6 +8,8 @@ import { customCalendarStyles } from "../styles/CalendarStyles";
 export default function CustomCalendar({ date, setDate }) {
   const [visible, setVisible] = useState(false);
 
+  console.log('CustomCalendarissa date on: ' + date)
+
   function dateSelected(day) {
     // console.log(day);
     setVisible(false);

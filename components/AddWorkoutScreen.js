@@ -16,32 +16,36 @@ export default function AddWorkoutScreen({ navigation}) {
   const [time, setTime] = useState('');
   // Tähän tilaan formatoitu date customCalendarista
   const [date, setDate] = useState('');
-  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+  // const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
- const validateFields = () => {
-  console.log(isButtonDisabled)
-    if (
-      selectedExercise.trim() !== '' &&
-      distance.trim() !== '' && parseFloat(distance) > 0 &&
-      time.trim() !== '' && parseFloat(time) > 0 &&
-      date.trim() !== ''
-    ) {
-      console.log('validoinnit täyttyy, joten tullaan ekaan iffiin')
-      setIsButtonDisabled(false);
-      console.log(isButtonDisabled)
-    } else {
-      console.log('validoinnit ei täyty, joten tullaan tokaan iffiin')
-     setIsButtonDisabled(true);
-     console.log(isButtonDisabled)
-    }
- };
+//  const validateFields = () => {
+//   console.log(isButtonDisabled)
+//     if (
+//       selectedExercise.trim() !== '' &&
+//       distance.trim() !== '' && parseFloat(distance) > 0 &&
+//       time.trim() !== '' && parseFloat(time) > 0 &&
+//       date.trim() !== ''
+//     ) {
+//       console.log(date)
+//       console.log('validoinnit täyttyy, joten tullaan ekaan iffiin')
+//       setIsButtonDisabled(false);
+//       // console.log(isButtonDisabled)
+//     } else {
+//       console.log(date)
+//       console.log('validoinnit ei täyty, joten tullaan tokaan iffiin')
+//      setIsButtonDisabled(true);
+//     //  console.log(isButtonDisabled)
+//     }
+//  };
 
-//  useEffect suoritetaan, mikäli jonkin kentän arvo muuttuu
-useEffect(() => {
-  console.log('ollaan useEffectissä')
-  validateFields();
-}, [selectedExercise, distance, time, date]);
+// //  useEffect suoritetaan, mikäli jonkin kentän arvo muuttuu
+// useEffect(() => {
+//   console.log('ollaan useEffectissä')
+//   console.log('Date on muuttunut: ', date);
+//   validateFields();
+// }, [selectedExercise, distance, time, date]);
 
+console.log("ennen renderöintiä date on: " + date)
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <View style={commonStyles.container}>
@@ -76,7 +80,7 @@ useEffect(() => {
           <CustomButton
             title="Lisää harjoitus"
             mode = "elevated"
-            disabled={isButtonDisabled}
+            // disabled={isButtonDisabled}
             onPress={() => navigation.navigate('Harjoitushistoria')}
             icon="plus-circle-outline"
             style={buttonStyles.largeButton}

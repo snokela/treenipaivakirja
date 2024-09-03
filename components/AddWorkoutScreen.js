@@ -19,20 +19,20 @@ export default function AddWorkoutScreen({ navigation}) {
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
  const validateFields = () => {
-  console.log(isButtonDisabled)
+  // console.log(isButtonDisabled)
     if (
       selectedExercise.trim() !== '' &&
       distance.trim() !== '' && parseFloat(distance) > 0 &&
       time.trim() !== '' && parseFloat(time) > 0 &&
       date.trim() !== ''
     ) {
-      console.log(date)
-      console.log('validoinnit täyttyy, joten tullaan ekaan iffiin')
+      // console.log(date)
+      // console.log('validoinnit täyttyy, joten tullaan ekaan iffiin')
       setIsButtonDisabled(false);
       // console.log(isButtonDisabled)
     } else {
-      console.log(date)
-      console.log('validoinnit ei täyty, joten tullaan tokaan iffiin')
+      // console.log(date)
+      // console.log('validoinnit ei täyty, joten tullaan tokaan iffiin')
      setIsButtonDisabled(true);
     //  console.log(isButtonDisabled)
     }
@@ -40,12 +40,17 @@ export default function AddWorkoutScreen({ navigation}) {
 
 //  useEffect suoritetaan, mikäli jonkin kentän arvo muuttuu
 useEffect(() => {
-  console.log('ollaan useEffectissä')
-  console.log('Date on muuttunut: ', date);
+  // console.log('ollaan useEffectissä')
+  // console.log('Date on muuttunut: ', date);
   validateFields();
 }, [selectedExercise, distance, time, date]);
 
-console.log("ennen renderöintiä date on: " + date)
+// console.log("valitut arvot ovat: ")
+// console.log(date)
+// console.log(selectedExercise)
+// console.log(distance)
+// console.log(time)
+
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <View style={commonStyles.container}>

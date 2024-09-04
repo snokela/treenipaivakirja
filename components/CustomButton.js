@@ -4,7 +4,7 @@ import { buttonStyles } from "../styles/Styles";
 
 
 
-export default function CustomButton({ title, onPress, mode , icon, style, iconSize=30, disabled = false}) {
+export default function CustomButton({ title, onPress, mode , icon, style, iconSize=25, disabled = false}) {
   return (
     <Button
       mode={mode}

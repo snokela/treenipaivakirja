@@ -55,8 +55,8 @@ useEffect(() => {
 
 const handlePress = () => {
   //korvataan pilkut pisteiksi
-  const formattedDistance = distance.replace(',','.')
-  const formattedTime = time.replace(',','.')
+  const formattedDistance = distance.replace(',','.');
+  const formattedTime = time.replace(',','.');
 
   //luodaan uusi objekti käyttäjän syöttämästä datasta
   const newWorkout = {
@@ -68,11 +68,12 @@ const handlePress = () => {
     icon: selectedExercise === 'Juoksu' ? 'run-fast' : selectedExercise === 'Kävely' ? 'walk' : 'bike',
   };
 
-  console.log(newWorkout)
-
+  const updatedWorkoutHistoryData = [...workoutHistoryData, newWorkout];
+  console.log(updatedWorkoutHistoryData)
+  navigation.navigate('Harjoitushistoria')
 }
 
-() => navigation.navigate('Harjoitushistoria')
+
 
 // console.log("valitut arvot ovat: ")
 // console.log(date)

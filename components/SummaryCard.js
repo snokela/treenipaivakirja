@@ -3,48 +3,44 @@ import { Card, Title } from "react-native-paper";
 import { summaryCardStyles, commonStyles } from "../styles/Styles";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-// summarycard saa propseina distancen datamallista
+// summarycard saa propsina kokonaissumman 'parentkomponentiltaan'
 export default function SummaryCard({ sportsSum }) {
 
-  // tässä tarvii suorittaa laskutoimitus, jossa lasketaan harjoitusten summat
+  const SportSummaryItem = ({ distance, iconName, label }) => {
+    return (
+      <View style={summaryCardStyles.summaryItem}>
+        <Icon
+          name={iconName}
+          size={25}
+          style={summaryCardStyles.summaryIcon}
+        />
+        <Text>{distance} km</Text>
+      </View>
+    );
+  }
 
   return (
     <View style={summaryCardStyles.container}>
       <Card
         mode="elevated"
         style={summaryCardStyles.summaryCard}
-        >
+      >
         <Text style={commonStyles.infoText}>
           Harjoitusten kokonaismatkat
         </Text>
         <Card.Content style={summaryCardStyles.cardContent}>
-          <View style={summaryCardStyles.summaryItem}>
-            <Icon
-              name= "run-fast"
-              size={25}
-              style={summaryCardStyles.summaryIcon}
-            >
-            </Icon>
-            <Text>{sportsSum.run} km</Text>
-          </View>
-          <View style={summaryCardStyles.summaryItem}>
-          <Icon
-              name= "bike"
-              size={25}
-              style={summaryCardStyles.summaryIcon}
-            >
-            </Icon>
-            <Text>{sportsSum.bike} km</Text>
-          </View>
-          <View style={summaryCardStyles.summaryItem}>
-          <Icon
-              name= "walk"
-              size={25}
-              style={summaryCardStyles.summaryIcon}
-            >
-            </Icon>
-            <Text>{sportsSum.walk} km</Text>
-          </View>
+          <SportSummaryItem
+            iconName={'run-fast'}
+            distance={sportsSum.run}
+          />
+           <SportSummaryItem
+            iconName={'bike'}
+            distance={sportsSum.bike}
+          />
+           <SportSummaryItem
+            iconName={'walk'}
+            distance={sportsSum.walk}
+          />
         </Card.Content>
       </Card>
     </View>

@@ -7,7 +7,7 @@ import CustomDivider from "./CustomDivider";
 
 
 //HOX!! laji tulee olemaan lopullisessa datamallissa sport!!
-  // TESTIDATAMALLI
+// TESTIDATAMALLI
 const data = [
   { id: '1', laji: 'Juoksu', date: '01.08.2024', distance: 5, duration: 40, iconName: 'run-fast' },
   { id: '2', laji: 'Kävely', date: '02.08.2024', distance: 3, duration: 30, iconName: 'walk' },
@@ -18,15 +18,17 @@ const data = [
 
 export default function WorkoutHistoryScreen() {
 
-function calculateSportSum(data , laji) {
-  return data
-  .filter(item => item.laji === 'laji')
-  .reduce((sum, item) => sum + item.distance, 0);
-}
+  function calculateSportSum(data, laji) {
+    return data
+      .filter(item => item.laji === laji)
+      .reduce((sum, item) => sum + item.distance, 0);
+  }
 
-const runSum = calculateSportSum(data, 'Juoksu');
-const walkSum = calculateSportSum(data, 'Kävely');
-const bikeSum = calculateSportSum(data, 'Pyöräily');
+  const sportsSum = {
+    run: calculateSportSum(data, 'Juoksu'),
+    walk: calculateSportSum(data, 'Kävely'),
+    bike: calculateSportSum(data, 'Pyöräily'),
+  };
 
 
   function Item({ item }) {
@@ -43,7 +45,7 @@ const bikeSum = calculateSportSum(data, 'Pyöräily');
   return (
     <View style={workoutHistoryScreenStyles.container}>
       <SummaryCard
-        distance={data.distance}
+        sportsSum={sportsSum}
       //myös yksiköt täytyy siirtää summarycardiin
       />
       <CustomDivider />
@@ -51,7 +53,7 @@ const bikeSum = calculateSportSum(data, 'Pyöräily');
         <FlatList
           data={data}
           keyExtractor={(item) => item.id}
-          renderItem={ Item }
+          renderItem={Item}
           style={workoutHistoryScreenStyles.flatList}
         />
       </View>

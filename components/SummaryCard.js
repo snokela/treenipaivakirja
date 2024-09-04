@@ -4,7 +4,7 @@ import { summaryCardStyles, commonStyles } from "../styles/Styles";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 // summarycard saa propseina distancen datamallista
-export default function SummaryCard({ distance }) {
+export default function SummaryCard({ sportsSum }) {
 
   // tässä tarvii suorittaa laskutoimitus, jossa lasketaan harjoitusten summat
 
@@ -25,7 +25,7 @@ export default function SummaryCard({ distance }) {
               style={summaryCardStyles.summaryIcon}
             >
             </Icon>
-            <Text>30 km</Text>
+            <Text>{sportsSum.run} km</Text>
           </View>
           <View style={summaryCardStyles.summaryItem}>
           <Icon
@@ -34,7 +34,7 @@ export default function SummaryCard({ distance }) {
               style={summaryCardStyles.summaryIcon}
             >
             </Icon>
-            <Text>50 km</Text>
+            <Text>{sportsSum.bike} km</Text>
           </View>
           <View style={summaryCardStyles.summaryItem}>
           <Icon
@@ -43,7 +43,7 @@ export default function SummaryCard({ distance }) {
               style={summaryCardStyles.summaryIcon}
             >
             </Icon>
-            <Text>100 km</Text>
+            <Text>{sportsSum.walk} km</Text>
           </View>
         </Card.Content>
       </Card>

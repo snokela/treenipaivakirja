@@ -64,22 +64,23 @@ const buttonStyles= StyleSheet.create ({
   content: {
     flexDirection: 'row-reverse',
     justifyContent: 'center',
-    paddingVertical: 15
+    // paddingVertical: 10,
   },
   textColor: 'black',
   largeButton: {
-    height: 65,
+    padding: 15,
+    // height: 65,
     // width: 300,
     // borderRadius: 10,
     justifyContent: 'center',
     marginBottom: 40,
   },
-  smallButton: {
-    justifyContent: 'center',
-    height: 65,
-    width: 110,
-    marginHorizontal: 4,
-  },
+  // smallButton: {
+  //   justifyContent: 'center',
+  //   height: 65,
+  //   width: 110,
+  //   marginHorizontal: 4,
+  // },
 })
 
 const summaryCardStyles= StyleSheet.create ({

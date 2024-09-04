@@ -8,7 +8,7 @@ export const customCalendarStyles =StyleSheet.create ({
   },
   calendarTheme: {
     arrowColor: '#4da7ae',
-    todayTextColor:'#4da7ae'
+    todayTextColor:'#4da7ae',
   },
   calendarButtonContainer: {
     flexDirection: "row",
@@ -21,5 +21,7 @@ export const customCalendarStyles =StyleSheet.create ({
   },
   calendarButtonText: {
     paddingLeft: 15,
+    fontSize: 16,
+    color: '#333333',
   },
 });

@@ -1,7 +1,7 @@
 // primary color: '#a2d9dc'
 import { StyleSheet } from "react-native";
-import CustomCalendar from "../components/CustomCalendar";
-import { Calendar } from "react-native-calendars";
+// import CustomCalendar from "../components/CustomCalendar";
+// import { Calendar } from "react-native-calendars";
 
 const commonStyles = StyleSheet.create({
   container: {
@@ -216,10 +216,10 @@ const customRadioButtonStyles = StyleSheet.create ({
   }
 })
 
-const calendarTheme = StyleSheet.create ({
-  arrowColor: '#4da7ae',
-  todayTextColor:'#4da7ae',
-})
+// const calendarTheme = StyleSheet.create ({
+//   arrowColor: '#4da7ae',
+//   todayTextColor:'#4da7ae',
+// })
 
 
 export { commonStyles , customHeaderStyles, workoutHistoryScreenStyles, navStyles, buttonStyles, summaryCardStyles, AddWorkoutScreenStyles, exerciseCardStyles, dividerStyles, customSegmentedButtonStyles, customRadioButtonStyles, customTextInputStyles }

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Text } from "react-native";
 import { Modal, Pressable, View } from "react-native";
 import { Calendar } from "react-native-calendars";
@@ -34,7 +34,7 @@ export default function CustomCalendar({ value, setDate}) {
       </Modal>
       <Pressable onPress={() => setVisible(true)}>
         <View style={customCalendarStyles.calendarButtonContainer}>
-        <AntDesign name="calendar" size={20} color="black" />
+        <AntDesign name="calendar" size={18} color='#333333' />
         <Text style={customCalendarStyles.calendarButtonText}> {value ? value : 'Valitse päivä'}</Text>
         </View>
       </Pressable>

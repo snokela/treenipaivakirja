@@ -16,26 +16,29 @@ export default function WorkoutHistoryScreen() {
     { id: '5', laji: 'Pyöräily', date: '05.08.2024', distance: 5, duration: 15, iconName: 'bike' },
   ];
 
+  function Item({ item }) {
+    return (
+      <ExerciseCard
+        iconName={item.iconName}
+        date={item.date}
+        distance={item.distance}
+        duration={item.duration}
+      />
+    );
+  }
+
   return (
     <View style={workoutHistoryScreenStyles.container}>
       <SummaryCard
         distance={data.distance}
-        //myös yksiköt täytyy siirtää summarycardiin
+      //myös yksiköt täytyy siirtää summarycardiin
       />
       <CustomDivider />
       <View style={workoutHistoryScreenStyles.flatListContainer}>
         <FlatList
           data={data}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-          <ExerciseCard
-          // siirretään nämä tiedot propseina ExerciseCardille, lisäksi yksiköt täytyy siirtää
-            iconName={item.iconName}
-            date={item.date}
-            distance={item.distance}
-            duration={item.duration}
-          />
-        )}
+          renderItem={ Item }
           style={workoutHistoryScreenStyles.flatList}
         />
       </View>

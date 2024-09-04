@@ -26,11 +26,19 @@ export default function AddWorkoutScreen({ navigation }) {
   const [date, setDate] = useState('');
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
-  const validateFields = () => {
+  //funktio, jolla korvataan pilkut pisteiksi
+  const formatInputValues = (value) => {
+    return value.replace(',', '.');
+  }
+
+  function validateFields() {
+    const formattedDistance = formatInputValues(distance);
+    const formattedTime = formatInputValues(time);
+
     if (
       selectedExercise.trim() !== '' &&
-      distance.trim() !== '' && parseFloat(distance) > 0 &&
-      time.trim() !== '' && parseFloat(time) > 0 &&
+      distance.trim() !== '' && parseFloat(formattedDistance) > 0 &&
+      time.trim() !== '' && parseFloat(formattedTime) > 0 &&
       date.trim() !== ''
     ) {
       setIsButtonDisabled(false);
@@ -44,10 +52,9 @@ export default function AddWorkoutScreen({ navigation }) {
     validateFields();
   }, [selectedExercise, distance, time, date]);
 
-  const handlePress = () => {
-    //korvataan pilkut pisteiksi
-    const formattedDistance = distance.replace(',', '.');
-    const formattedTime = time.replace(',', '.');
+ function handlePress() {
+    const formattedDistance = formatInputValues(distance);
+    const formattedTime = formatInputValues(time);
 
     //luodaan uusi objekti käyttäjän syöttämästä datasta
     const newWorkout = {

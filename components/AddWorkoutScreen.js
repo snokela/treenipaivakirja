@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import CustomCalendar from "./CustomCalendar";
 
 
-  // TESTIDATAMALLI
+// TESTIDATAMALLI
 const workoutHistoryData = [
   { id: 1, sport: 'Juoksu', date: '01.08.2024', distance: 5, duration: 40, iconName: 'run-fast' },
   { id: 2, sport: 'Kävely', date: '02.08.2024', distance: 3, duration: 30, iconName: 'walk' },
@@ -17,69 +17,58 @@ const workoutHistoryData = [
   { id: 5, sport: 'Pyöräily', date: '05.08.2024', distance: 5, duration: 15, iconName: 'bike' },
 ]
 
-export default function AddWorkoutScreen({ navigation}) {
+export default function AddWorkoutScreen({ navigation }) {
   // tilanhallinnat:
-  const [selectedExercise, setSelectedExercise] =  useState('');
+  const [selectedExercise, setSelectedExercise] = useState('');
   const [distance, setDistance] = useState('');
   const [time, setTime] = useState('');
   // Tähän tilaan formatoitu date customCalendarista
   const [date, setDate] = useState('');
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
- const validateFields = () => {
-  // console.log(isButtonDisabled)
+  const validateFields = () => {
     if (
       selectedExercise.trim() !== '' &&
       distance.trim() !== '' && parseFloat(distance) > 0 &&
       time.trim() !== '' && parseFloat(time) > 0 &&
       date.trim() !== ''
     ) {
-      // console.log(date)
-      // console.log('validoinnit täyttyy, joten tullaan ekaan iffiin')
       setIsButtonDisabled(false);
-      // console.log(isButtonDisabled)
     } else {
-      // console.log(date)
-      // console.log('validoinnit ei täyty, joten tullaan tokaan iffiin')
-     setIsButtonDisabled(true);
-    //  console.log(isButtonDisabled)
+      setIsButtonDisabled(true);
     }
- };
-
-//  useEffect suoritetaan, mikäli jonkin kentän arvo muuttuu
-useEffect(() => {
-  // console.log('ollaan useEffectissä')
-  // console.log('Date on muuttunut: ', date);
-  validateFields();
-}, [selectedExercise, distance, time, date]);
-
-const handlePress = () => {
-  //korvataan pilkut pisteiksi
-  const formattedDistance = distance.replace(',','.');
-  const formattedTime = time.replace(',','.');
-
-  //luodaan uusi objekti käyttäjän syöttämästä datasta
-  const newWorkout = {
-    id: (workoutHistoryData.length + 1),
-    sport: selectedExercise,
-    date: date,
-    distance: parseFloat(formattedDistance),
-    duration: parseFloat(formattedTime),
-    icon: selectedExercise === 'Juoksu' ? 'run-fast' : selectedExercise === 'Kävely' ? 'walk' : 'bike',
   };
 
-  const updatedWorkoutHistoryData = [...workoutHistoryData, newWorkout];
-  console.log(updatedWorkoutHistoryData)
-  navigation.navigate('Harjoitushistoria')
-}
+  //  useEffect suoritetaan, mikäli jonkin kentän arvo muuttuu
+  useEffect(() => {
+    validateFields();
+  }, [selectedExercise, distance, time, date]);
 
+  const handlePress = () => {
+    //korvataan pilkut pisteiksi
+    const formattedDistance = distance.replace(',', '.');
+    const formattedTime = time.replace(',', '.');
 
+    //luodaan uusi objekti käyttäjän syöttämästä datasta
+    const newWorkout = {
+      id: (workoutHistoryData.length + 1),
+      sport: selectedExercise,
+      date: date,
+      distance: parseFloat(formattedDistance),
+      duration: parseFloat(formattedTime),
+      icon: selectedExercise === 'Juoksu' ? 'run-fast' : selectedExercise === 'Kävely' ? 'walk' : 'bike',
+    };
 
-// console.log("valitut arvot ovat: ")
-// console.log(date)
-// console.log(selectedExercise)
-// console.log(distance)
-// console.log(time)
+    const updatedWorkoutHistoryData = [...workoutHistoryData, newWorkout];
+    // console.log(updatedWorkoutHistoryData)
+    navigation.navigate('Harjoitushistoria')
+
+    //tyhjennetään käyttäjän syöttämät valintakentät
+    setSelectedExercise('');
+    setDistance('');
+    setTime('');
+    setDate('');
+  };
 
   return (
     // tähän touchablewithoutfeedback, jotta iOsissa keyboard saadaan koskettamalla poistumaan
@@ -105,17 +94,17 @@ const handlePress = () => {
             />
           </View>
           <View style={AddWorkoutScreenStyles.date}>
-          <CustomCalendar
-            value={date}
-            setDate={setDate}
-          />
+            <CustomCalendar
+              value={date}
+              setDate={setDate}
+            />
           </View>
           <CustomDivider />
         </View>
         <View style={AddWorkoutScreenStyles.button}>
           <CustomButton
             title="Lisää harjoitus"
-            mode = "elevated"
+            mode="elevated"
             disabled={isButtonDisabled}
             onPress={handlePress}
             icon="plus-circle-outline"

@@ -5,21 +5,13 @@ import { Calendar } from "react-native-calendars";
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { customCalendarStyles } from "../styles/CalendarStyles";
 
-export default function CustomCalendar({ date, setDate }) {
+export default function CustomCalendar({ value, setDate}) {
   const [visible, setVisible] = useState(false);
-  const [formattedDate, setFormattedDate] = useState(date);
-
-   useEffect(() => {
-    // Päivitetään formattedDate aina, kun date-proppi muuttuu
-    setFormattedDate(date);
-  }, [date]);
 
   function dateSelected(day) {
-    // console.log(day);
     setVisible(false);
-    // const formatted = day.day + '.' + day.month + '.' + day.year;
     const formatted = `${day.day}.${day.month}.${day.year}`;
-    setFormattedDate(formatted);
+    //päivitetään pvm suoraan addworkoutScreen komponentille
     setDate(formatted);
   }
 
@@ -38,7 +30,7 @@ export default function CustomCalendar({ date, setDate }) {
       <Pressable onPress={() => setVisible(true)}>
         <View style={customCalendarStyles.calendarButtonContainer}>
         <AntDesign name="calendar" size={20} color="black" />
-        <Text style={customCalendarStyles.calendarButtonText}> {formattedDate ? formattedDate : 'Valitse päivä'}</Text>
+        <Text style={customCalendarStyles.calendarButtonText}> {value ? value : 'Valitse päivä'}</Text>
         </View>
       </Pressable>
     </View>

@@ -30,6 +30,7 @@ export default function WorkoutHistoryScreen() {
     bike: calculateSportSum(data, 'Pyöräily'),
   };
 
+  const reversedData = [...data].reverse()
 
   function Item({ item }) {
     return (
@@ -51,7 +52,7 @@ export default function WorkoutHistoryScreen() {
       <CustomDivider />
       <View style={workoutHistoryScreenStyles.flatListContainer}>
         <FlatList
-          data={data}
+          data={reversedData}
           keyExtractor={(item) => item.id}
           renderItem={Item}
           style={workoutHistoryScreenStyles.flatList}

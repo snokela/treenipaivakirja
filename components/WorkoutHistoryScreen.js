@@ -7,7 +7,6 @@ import CustomDivider from "./CustomDivider";
 
 export default function WorkoutHistoryScreen() {
 
-
   // TESTIDATAMALLI
   const data = [
     { id: '1', laji: 'Juoksu', date: '01.08.2024', distance: 5, duration: 40, iconName: 'run-fast' },

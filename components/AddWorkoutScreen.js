@@ -61,7 +61,7 @@ export default function AddWorkoutScreen({ navigation }) {
 
     const updatedWorkoutHistoryData = [...workoutHistoryData, newWorkout];
     // console.log(updatedWorkoutHistoryData)
-    navigation.navigate('Harjoitushistoria')
+    navigation.navigate('Harjoitushistoria');
 
     //tyhjennetään käyttäjän syöttämät valintakentät
     setSelectedExercise('');

@@ -10,12 +10,11 @@ import CustomCalendar from "./CustomCalendar";
 
   // TESTIDATAMALLI
 const workoutHistoryData = [
-  { id: '1', sport: 'Juoksu', date: '01.08.2024', distance: 5, duration: 40, iconName: 'run-fast' },
-  { id: '2', sport: 'Kävely', date: '02.08.2024', distance: 3, duration: 30, iconName: 'walk' },
-  { id: '3', sport: 'Pyöräily', date: '03.08.2024', distance: 20, duration: 60, iconName: 'bike' },
-  { id: '4', sport: 'Pyöräily', date: '04.08.2024', distance: 3, duration: 10, iconName: 'bike' },
-  { id: '5', sport: 'Pyöräily', date: '05.08.2024', distance: 5, duration: 15, iconName: 'bike' },
-
+  { id: 1, sport: 'Juoksu', date: '01.08.2024', distance: 5, duration: 40, iconName: 'run-fast' },
+  { id: 2, sport: 'Kävely', date: '02.08.2024', distance: 3, duration: 30, iconName: 'walk' },
+  { id: 3, sport: 'Pyöräily', date: '03.08.2024', distance: 20, duration: 60, iconName: 'bike' },
+  { id: 4, sport: 'Pyöräily', date: '04.08.2024', distance: 3, duration: 10, iconName: 'bike' },
+  { id: 5, sport: 'Pyöräily', date: '05.08.2024', distance: 5, duration: 15, iconName: 'bike' },
 ]
 
 export default function AddWorkoutScreen({ navigation}) {
@@ -54,7 +53,24 @@ useEffect(() => {
   validateFields();
 }, [selectedExercise, distance, time, date]);
 
+const handlePress = () => {
+  //korvataan pilkut pisteiksi
+  const formattedDistance = distance.replace(',','.')
+  const formattedTime = time.replace(',','.')
 
+  //luodaan uusi objekti käyttäjän syöttämästä datasta
+  const newWorkout = {
+    id: (workoutHistoryData.length + 1),
+    sport: selectedExercise,
+    date: date,
+    distance: parseFloat(formattedDistance),
+    duration: parseFloat(formattedTime),
+    icon: selectedExercise === 'Juoksu' ? 'run-fast' : selectedExercise === 'Kävely' ? 'walk' : 'bike',
+  };
+
+  console.log(newWorkout)
+
+}
 
 () => navigation.navigate('Harjoitushistoria')
 
@@ -100,7 +116,7 @@ useEffect(() => {
             title="Lisää harjoitus"
             mode = "elevated"
             disabled={isButtonDisabled}
-            onPress={() => navigation.navigate('Harjoitushistoria')}
+            onPress={handlePress}
             icon="plus-circle-outline"
             style={buttonStyles.largeButton}
           />

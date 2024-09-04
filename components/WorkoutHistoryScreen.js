@@ -5,6 +5,8 @@ import { FlatList } from "react-native";
 import ExerciseCard from "./ExerciseCard";
 import CustomDivider from "./CustomDivider";
 
+
+//HOX!! laji tulee olemaan lopullisessa datamallissa sport!!
   // TESTIDATAMALLI
 const data = [
   { id: '1', laji: 'Juoksu', date: '01.08.2024', distance: 5, duration: 40, iconName: 'run-fast' },
@@ -16,12 +18,15 @@ const data = [
 
 export default function WorkoutHistoryScreen() {
 
-  const runSum = data
-    .filter(item => item.laji === 'run')
-    .reduce((sum, item) => sum + item.distance, 0);
+function calculateSportSum(data , laji) {
+  return data
+  .filter(item => item.laji === 'laji')
+  .reduce((sum, item) => sum + item.distance, 0);
+}
 
-
-
+const runSum = calculateSportSum(data, 'Juoksu');
+const walkSum = calculateSportSum(data, 'Kävely');
+const bikeSum = calculateSportSum(data, 'Pyöräily');
 
 
   function Item({ item }) {

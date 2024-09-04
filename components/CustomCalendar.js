@@ -15,6 +15,10 @@ export default function CustomCalendar({ value, setDate}) {
     setDate(formatted);
   }
 
+  //asetetaan nykyinen päivä maxDate arvoksi
+  const today = new Date().toDateString()
+  // console.log(today)
+
   return (
     <View>
       <Modal
@@ -25,6 +29,7 @@ export default function CustomCalendar({ value, setDate}) {
         style={customCalendarStyles.calendar}
         onDayPress={dateSelected}
         theme={customCalendarStyles.calendarTheme}
+        maxDate={today}
         />
       </Modal>
       <Pressable onPress={() => setVisible(true)}>

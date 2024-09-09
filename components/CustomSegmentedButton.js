@@ -9,6 +9,12 @@ export default function CustomSegmentedButton({ value, setValue }) {
   // const [value, setValue] =  useState('')
 //   const theme = useTheme();
 
+// buttons =  [
+//   {value:'run', label: 'Juoksu', icon: 'run-fast'},
+//   {value: 'bike', label: 'Pyöräily', icon:'bike'},
+//   {value: 'walk', label: 'Kävely',icon: 'walk'}
+// ]
+
   return (
     <SafeAreaView style={customSegmentedButtonStyles.container}>
     {/* <SafeAreaView> */}

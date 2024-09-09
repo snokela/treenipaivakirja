@@ -178,7 +178,7 @@ const customSegmentedButtonStyles = StyleSheet.create ({
   },
   buttons: {
     backgroundColor: '#a2d9dc',
-    borderRadius: 20,
+    borderRadius: 13,
     marginHorizontal: 2,
     height: 40,
     alignItems: 'center',

@@ -1,13 +1,12 @@
-import { Text, View, TouchableWithoutFeedback, Keyboard, Alert } from "react-native";
+import { View, TouchableWithoutFeedback, Keyboard, Alert } from "react-native";
 import { commonStyles, buttonStyles, AddWorkoutScreenStyles } from "../styles/Styles";
 import CustomButton from "./CustomButton";
 import CustomSegmentedButton from "./CustomSegmentedButton";
 import CustomTextInput from "./CustomTextInput";
 import CustomDivider from "./CustomDivider";
-import { useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import CustomCalendar from "./CustomCalendar";
-
-
+import { useFocusEffect } from "@react-navigation/native";
 
 // TESTIDATAMALLI
 const workoutHistoryData = [
@@ -18,7 +17,7 @@ const workoutHistoryData = [
   { id: 5, sport: 'Pyöräily', date: '05.08.2024', distance: 5, duration: 15, iconName: 'bike' },
 ]
 
-// alert funktio
+// Alert-funktio
 function CustomAlert({ title, message }) {
   return Alert.alert(
     title,
@@ -35,43 +34,34 @@ function CustomAlert({ title, message }) {
 }
 
 export default function AddWorkoutScreen({ navigation }) {
-  // tilanhallinnat:
+
   const [selectedExercise, setSelectedExercise] = useState('');
   const [distance, setDistance] = useState('');
   const [time, setTime] = useState('');
-  // Tähän tilaan formatoitu date customCalendarista
   const [date, setDate] = useState('');
-  // const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+
 
   //funktio, jolla korvataan pilkut pisteiksi
   const formatInputValues = (value) => {
     return value.replace(',', '.');
   }
 
-  // function validateFields() {
-  const formattedDistance = formatInputValues(distance);
-  const formattedTime = formatInputValues(time);
-
-  //   if (
-  //     selectedExercise.trim() !== '' &&
-  //     distance.trim() !== '' && parseFloat(formattedDistance) > 0 &&
-  //     time.trim() !== '' && parseFloat(formattedTime) > 0 &&
-  //     date.trim() !== ''
-  //   ) {
-  //     setIsButtonDisabled(false);
-  //   } else {
-  //     setIsButtonDisabled(true);
-  //   }
-  // };
-
-  // //  useEffect suoritetaan, mikäli jonkin kentän arvo muuttuu
-  // useEffect(() => {
-  //   validateFields();
-  // }, [selectedExercise, distance, time, date]);
+   //nollataaan kentät aina, kun sivu fokusoituu
+  useFocusEffect(
+    useCallback(() => {
+      setSelectedExercise('');
+      setDistance('');
+      setTime('');
+      setDate('');
+  }, [])
+)
 
   function handlePress() {
 
-    // suoritetaan validointi
+    const formattedDistance = formatInputValues(distance);
+    const formattedTime = formatInputValues(time);
+
+    // validointi
     if (selectedExercise.trim() === '') {
       CustomAlert({ title: "Select Exercise", message: "You must select an exercise before proceeding." });
       return;
@@ -85,11 +75,6 @@ export default function AddWorkoutScreen({ navigation }) {
       CustomAlert({ title: "Select Date", message: "You must select a date before proceeding." });
       return;
     } else {
-
-      // const formattedDistance = formatInputValues(distance);
-      // const formattedTime = formatInputValues(time);
-
-      //luodaan uusi objekti käyttäjän syöttämästä datasta
       const newWorkout = {
         id: (workoutHistoryData.length + 1),
         sport: selectedExercise,
@@ -100,10 +85,10 @@ export default function AddWorkoutScreen({ navigation }) {
       };
 
       const updatedWorkoutHistoryData = [...workoutHistoryData, newWorkout];
-      // console.log(updatedWorkoutHistoryData)
+      //suoritetaan navigointi
       navigation.navigate('Harjoitushistoria');
 
-      //tyhjennetään käyttäjän syöttämät valintakentät
+      //tyhjennä kentät
       setSelectedExercise('');
       setDistance('');
       setTime('');

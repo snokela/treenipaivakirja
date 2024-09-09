@@ -46,13 +46,18 @@ export default function AddWorkoutScreen({ navigation }) {
     return value.replace(',', '.');
   }
 
-   //nollataaan kentät aina, kun sivu fokusoituu
-  useFocusEffect(
-    useCallback(() => {
+  // funktio, joka nollaa input-arvot
+  const cleanInputValues = () => {
       setSelectedExercise('');
       setDistance('');
       setTime('');
       setDate('');
+  }
+
+   //nollataaan kentät aina, kun sivu fokusoituu
+  useFocusEffect(
+    useCallback(() => {
+    cleanInputValues();
   }, [])
 )
 
@@ -89,10 +94,7 @@ export default function AddWorkoutScreen({ navigation }) {
       navigation.navigate('Harjoitushistoria');
 
       //tyhjennä kentät
-      setSelectedExercise('');
-      setDistance('');
-      setTime('');
-      setDate('');
+      cleanInputValues();
     };
   }
 

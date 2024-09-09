@@ -48,18 +48,18 @@ export default function AddWorkoutScreen({ navigation }) {
 
   // funktio, joka nollaa input-arvot
   const cleanInputValues = () => {
-      setSelectedExercise('');
-      setDistance('');
-      setTime('');
-      setDate('');
+    setSelectedExercise('');
+    setDistance('');
+    setTime('');
+    setDate('');
   }
 
-   //nollataaan kentät aina, kun sivu fokusoituu
+  //nollataaan kentät aina, kun sivu fokusoituu
   useFocusEffect(
     useCallback(() => {
-    cleanInputValues();
-  }, [])
-)
+      cleanInputValues();
+    }, [])
+  )
 
   function handlePress() {
 
@@ -133,7 +133,6 @@ export default function AddWorkoutScreen({ navigation }) {
           <CustomButton
             title="Lisää harjoitus"
             mode="elevated"
-            // disabled={isButtonDisabled}
             onPress={handlePress}
             icon="plus-circle-outline"
             style={buttonStyles.largeButton}

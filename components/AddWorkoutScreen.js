@@ -68,16 +68,16 @@ export default function AddWorkoutScreen({ navigation }) {
 
     // validointi
     if (selectedExercise.trim() === '') {
-      CustomAlert({ title: "Select Exercise", message: "You must select an exercise before proceeding." });
+      CustomAlert({ title: "Valitse harjoitus", message: "Sinun täytyy valita harjoitustyyppi, ennen jatkamista." });
       return;
     } else if (distance.trim() === '' || parseFloat(formattedDistance) <= 0) {
-      CustomAlert({ title: "Select Distance", message: "You must select a distance before proceeding." });
+      CustomAlert({ title: "Valitse matka", message: "Sinun täytyy valita matka, ennen jatkamista." });
       return;
     } else if (time.trim() === '' || parseFloat(formattedTime) <= 0) {
-      CustomAlert({ title: "Select Time", message: "You must select a time before proceeding." });
+      CustomAlert({ title: "Valitse aika", message: "Sinun täytyy valita aika, ennen jatkamista." });
       return;
     } else if (date.trim() === '') {
-      CustomAlert({ title: "Select Date", message: "You must select a date before proceeding." });
+      CustomAlert({ title: "Valitse päivä", message: "Sinun täytyy valita päivä, ennen jatkamista." });
       return;
     } else {
       const newWorkout = {

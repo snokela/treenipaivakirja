@@ -1,4 +1,4 @@
-import { Text, View, TouchableWithoutFeedback, Keyboard } from "react-native";
+import { Text, View, TouchableWithoutFeedback, Keyboard, Alert } from "react-native";
 import { commonStyles, buttonStyles, AddWorkoutScreenStyles } from "../styles/Styles";
 import CustomButton from "./CustomButton";
 import CustomSegmentedButton from "./CustomSegmentedButton";
@@ -6,6 +6,7 @@ import CustomTextInput from "./CustomTextInput";
 import CustomDivider from "./CustomDivider";
 import { useEffect, useState } from "react";
 import CustomCalendar from "./CustomCalendar";
+
 
 
 // TESTIDATAMALLI
@@ -17,6 +18,22 @@ const workoutHistoryData = [
   { id: 5, sport: 'Pyöräily', date: '05.08.2024', distance: 5, duration: 15, iconName: 'bike' },
 ]
 
+// alert funktio
+function CustomAlert({ title, message }) {
+  return Alert.alert(
+    title,
+    message,
+    [
+      {
+        text: "Cancel",
+        onPress: () => console.log("Cancel Pressed"),
+        style: "cancel"
+      }
+    ],
+    { cancelable: true }
+  );
+}
+
 export default function AddWorkoutScreen({ navigation }) {
   // tilanhallinnat:
   const [selectedExercise, setSelectedExercise] = useState('');
@@ -24,58 +41,75 @@ export default function AddWorkoutScreen({ navigation }) {
   const [time, setTime] = useState('');
   // Tähän tilaan formatoitu date customCalendarista
   const [date, setDate] = useState('');
-  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+  // const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
   //funktio, jolla korvataan pilkut pisteiksi
   const formatInputValues = (value) => {
     return value.replace(',', '.');
   }
 
-  function validateFields() {
-    const formattedDistance = formatInputValues(distance);
-    const formattedTime = formatInputValues(time);
+  // function validateFields() {
+  const formattedDistance = formatInputValues(distance);
+  const formattedTime = formatInputValues(time);
 
-    if (
-      selectedExercise.trim() !== '' &&
-      distance.trim() !== '' && parseFloat(formattedDistance) > 0 &&
-      time.trim() !== '' && parseFloat(formattedTime) > 0 &&
-      date.trim() !== ''
-    ) {
-      setIsButtonDisabled(false);
+  //   if (
+  //     selectedExercise.trim() !== '' &&
+  //     distance.trim() !== '' && parseFloat(formattedDistance) > 0 &&
+  //     time.trim() !== '' && parseFloat(formattedTime) > 0 &&
+  //     date.trim() !== ''
+  //   ) {
+  //     setIsButtonDisabled(false);
+  //   } else {
+  //     setIsButtonDisabled(true);
+  //   }
+  // };
+
+  // //  useEffect suoritetaan, mikäli jonkin kentän arvo muuttuu
+  // useEffect(() => {
+  //   validateFields();
+  // }, [selectedExercise, distance, time, date]);
+
+  function handlePress() {
+
+    // suoritetaan validointi
+    if (selectedExercise.trim() === '') {
+      CustomAlert({ title: "Select Exercise", message: "You must select an exercise before proceeding." });
+      return;
+    } else if (distance.trim() === '' || parseFloat(formattedDistance) <= 0) {
+      CustomAlert({ title: "Select Distance", message: "You must select a distance before proceeding." });
+      return;
+    } else if (time.trim() === '' || parseFloat(formattedTime) <= 0) {
+      CustomAlert({ title: "Select Time", message: "You must select a time before proceeding." });
+      return;
+    } else if (date.trim() === '') {
+      CustomAlert({ title: "Select Date", message: "You must select a date before proceeding." });
+      return;
     } else {
-      setIsButtonDisabled(true);
-    }
-  };
 
-  //  useEffect suoritetaan, mikäli jonkin kentän arvo muuttuu
-  useEffect(() => {
-    validateFields();
-  }, [selectedExercise, distance, time, date]);
+      // const formattedDistance = formatInputValues(distance);
+      // const formattedTime = formatInputValues(time);
 
- function handlePress() {
-    const formattedDistance = formatInputValues(distance);
-    const formattedTime = formatInputValues(time);
+      //luodaan uusi objekti käyttäjän syöttämästä datasta
+      const newWorkout = {
+        id: (workoutHistoryData.length + 1),
+        sport: selectedExercise,
+        date: date,
+        distance: parseFloat(formattedDistance),
+        duration: parseFloat(formattedTime),
+        icon: selectedExercise === 'Juoksu' ? 'run-fast' : selectedExercise === 'Kävely' ? 'walk' : 'bike',
+      };
 
-    //luodaan uusi objekti käyttäjän syöttämästä datasta
-    const newWorkout = {
-      id: (workoutHistoryData.length + 1),
-      sport: selectedExercise,
-      date: date,
-      distance: parseFloat(formattedDistance),
-      duration: parseFloat(formattedTime),
-      icon: selectedExercise === 'Juoksu' ? 'run-fast' : selectedExercise === 'Kävely' ? 'walk' : 'bike',
+      const updatedWorkoutHistoryData = [...workoutHistoryData, newWorkout];
+      // console.log(updatedWorkoutHistoryData)
+      navigation.navigate('Harjoitushistoria');
+
+      //tyhjennetään käyttäjän syöttämät valintakentät
+      setSelectedExercise('');
+      setDistance('');
+      setTime('');
+      setDate('');
     };
-
-    const updatedWorkoutHistoryData = [...workoutHistoryData, newWorkout];
-    // console.log(updatedWorkoutHistoryData)
-    navigation.navigate('Harjoitushistoria');
-
-    //tyhjennetään käyttäjän syöttämät valintakentät
-    setSelectedExercise('');
-    setDistance('');
-    setTime('');
-    setDate('');
-  };
+  }
 
   return (
     // tähän touchablewithoutfeedback, jotta iOsissa keyboard saadaan koskettamalla poistumaan
@@ -112,7 +146,7 @@ export default function AddWorkoutScreen({ navigation }) {
           <CustomButton
             title="Lisää harjoitus"
             mode="elevated"
-            disabled={isButtonDisabled}
+            // disabled={isButtonDisabled}
             onPress={handlePress}
             icon="plus-circle-outline"
             style={buttonStyles.largeButton}

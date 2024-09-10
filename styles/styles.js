@@ -1,7 +1,5 @@
 // primary color: '#a2d9dc'
 import { StyleSheet } from "react-native";
-// import CustomCalendar from "../components/CustomCalendar";
-// import { Calendar } from "react-native-calendars";
 
 const commonStyles = StyleSheet.create({
   container: {
@@ -53,34 +51,21 @@ const navStyles = StyleSheet.create ({
   },
   tabBarStyle: {
     backgroundColor: '#a2d9dc',
-    // backgroundColor: theme.colors.primary,
   },
   tabBarActiveTintColor: 'black',
-  // tabBarActiveTintColor: '#b28c23',
-  // tabBarInactiveTintColor: '#333333',
 });
 
 const buttonStyles= StyleSheet.create ({
   content: {
     flexDirection: 'row-reverse',
     justifyContent: 'center',
-    // paddingVertical: 10,
   },
   textColor: 'black',
   largeButton: {
     padding: 15,
-    // height: 65,
-    // width: 300,
-    // borderRadius: 10,
     justifyContent: 'center',
     marginBottom: 40,
   },
-  // smallButton: {
-  //   justifyContent: 'center',
-  //   height: 65,
-  //   width: 110,
-  //   marginHorizontal: 4,
-  // },
 })
 
 const summaryCardStyles= StyleSheet.create ({
@@ -96,13 +81,7 @@ const summaryCardStyles= StyleSheet.create ({
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
-  // summaryCardTitle: {
-  //   justifyContent: 'center',
-  //   paddingTop:10,
-  //   paddingBottom: 20,
-  //   textAlign: 'center',
-  //   fontWeight: 'bold',
-  // },
+
   summaryItem: {
     alignItems: 'center',
     paddingLeft: 30,
@@ -174,12 +153,10 @@ const dividerStyles = StyleSheet.create ({
 const customSegmentedButtonStyles = StyleSheet.create ({
   container: {
     flex: 1,
-    // alignItems: 'center',
   },
   buttons: {
     backgroundColor: '#a2d9dc',
-    borderRadius: 13,
-    marginHorizontal: 2,
+    borderRadius: 20,
     height: 40,
     alignItems: 'center',
     justifyContent: 'center',
@@ -187,7 +164,7 @@ const customSegmentedButtonStyles = StyleSheet.create ({
 })
 
 const customTextInputStyles = StyleSheet.create ({
-  textInput : {
+  textInput: {
     backgroundColor: 'white',
   },
   activeOutline: {
@@ -216,12 +193,6 @@ const customRadioButtonStyles = StyleSheet.create ({
     color: '#81c2c5',
   }
 })
-
-// const calendarTheme = StyleSheet.create ({
-//   arrowColor: '#4da7ae',
-//   todayTextColor:'#4da7ae',
-// })
-
 
 export { commonStyles , customHeaderStyles, workoutHistoryScreenStyles, navStyles, buttonStyles, summaryCardStyles, AddWorkoutScreenStyles, exerciseCardStyles, dividerStyles, customSegmentedButtonStyles, customRadioButtonStyles, customTextInputStyles }
 

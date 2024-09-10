@@ -24,7 +24,7 @@ function CustomAlert({ title, message }) {
     message,
     [
       {
-        text: "Cancel",
+        text: "Sulje",
         onPress: () => console.log("Cancel Pressed"),
         style: "cancel"
       }

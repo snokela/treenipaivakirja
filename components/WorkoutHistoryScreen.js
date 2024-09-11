@@ -22,9 +22,9 @@ export default function WorkoutHistoryScreen() {
   }
 
   const sportsSum = {
-    run: calculateSportSum(data, 'Juoksu'),
-    walk: calculateSportSum(data, 'Kävely'),
-    bike: calculateSportSum(data, 'Pyöräily'),
+    run: calculateSportSum(data, 'run'),
+    walk: calculateSportSum(data, 'walk'),
+    bike: calculateSportSum(data, 'bike'),
   };
 
   const reversedData = [...data].reverse()

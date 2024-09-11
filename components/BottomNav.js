@@ -10,7 +10,6 @@ import { navStyles } from "../styles/Styles";
 
 const Tab = createBottomTabNavigator();
 
-// const HOME = 'Treenipäiväkirja';
 const ADDWORKOUT = 'Harjoituksen lisääminen';
 const WORKOUTHISTORY = 'Harjoitushistoria';
 const SETTINGS = 'Asetukset';
@@ -30,45 +29,45 @@ export default function BottomNav() {
         }}
       >
         <Tab.Screen
-          name= "Home"
+          name="Home"
           component={HomeScreen}
           options={{
             headerTitle: () => <CustomHeaderTitle />,
-            tabBarIcon: ({ color, size }) => (
-              <Icon name="home" color={color} size={size}/>
+            tabBarIcon: ({ color }) => (
+              <Icon name="home" color={color} size={24} />
             ),
             tabBarLabel: () => null,
           }}
         />
         <Tab.Screen
-        name={ADDWORKOUT}
-        component={AddWorkoutScreen}
-        options={{
-          tabBarIcon: ({color, size}) => (
-            <Icon name="plus-circle-outline" color={color} size={size}/>
-          ),
-          tabBarLabel: () => null,
-        }}
+          name={ADDWORKOUT}
+          component={AddWorkoutScreen}
+          options={{
+            tabBarIcon: ({ color }) => (
+              <Icon name="plus-circle-outline" color={color} size={24} />
+            ),
+            tabBarLabel: () => null,
+          }}
         />
         <Tab.Screen
-        name={WORKOUTHISTORY}
-        component={WorkoutHistoryScreen}
-        options={{
-          tabBarIcon: ({color, size}) => (
-            <Icon name="calendar-month-outline" color={color} size={size}/>
-          ),
-          tabBarLabel: () => null,
-        }}
+          name={WORKOUTHISTORY}
+          component={WorkoutHistoryScreen}
+          options={{
+            tabBarIcon: ({ color }) => (
+              <Icon name="calendar-month-outline" color={color} size={24} />
+            ),
+            tabBarLabel: () => null,
+          }}
         />
         <Tab.Screen
-        name={SETTINGS}
-        component={SettingsScreen}
-        options={{
-          tabBarIcon: ({color, size}) => (
-            <Icon name="cog-outline" color={color} size={size}/>
-          ),
-          tabBarLabel: () => null,
-        }}
+          name={SETTINGS}
+          component={SettingsScreen}
+          options={{
+            tabBarIcon: ({ color }) => (
+              <Icon name="cog-outline" color={color} size={24} />
+            ),
+            tabBarLabel: () => null,
+          }}
         />
       </Tab.Navigator>
     </NavigationContainer>

@@ -19,7 +19,7 @@ export default function App() {
 
   return (
     <HistoryDataContext.Provider value={{ workoutHistoryData, setWorkoutHistoryData }}>
-      <UnitContext.Provider value={setUnit}>
+      <UnitContext.Provider value={{ unit,setUnit }}>
         <PaperProvider theme={theme}>
           <BottomNav />
           {/* <StatusBar style="auto" /> */}

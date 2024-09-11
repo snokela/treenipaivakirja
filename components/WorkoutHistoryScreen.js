@@ -4,14 +4,16 @@ import SummaryCard from "../components/SummaryCard";
 import { FlatList } from "react-native";
 import ExerciseCard from "./ExerciseCard";
 import CustomDivider from "./CustomDivider";
-import { useContext } from "react";
+import { useCallback, useContext } from "react";
 import { HistoryDataContext } from "../contexts/WorkoutContext";
+import { useFocusEffect } from "@react-navigation/native";
 
 
 export default function WorkoutHistoryScreen() {
-  // haetaan historydata contexstista
+  // tuodaan historydata contexstista
   const historydata = useContext(HistoryDataContext)
   const data = historydata.workoutHistoryData
+  console.log('historiadata nyt: ' + JSON.stringify(data))
 
   function calculateSportSum(data, sport) {
     return data

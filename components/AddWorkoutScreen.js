@@ -4,18 +4,19 @@ import CustomButton from "./CustomButton";
 import CustomSegmentedButton from "./CustomSegmentedButton";
 import CustomTextInput from "./CustomTextInput";
 import CustomDivider from "./CustomDivider";
-import { useCallback, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import CustomCalendar from "./CustomCalendar";
 import { useFocusEffect } from "@react-navigation/native";
+import { HistoryDataContext } from "../contexts/WorkoutContext";
 
 // TESTIDATAMALLI
-const workoutHistoryData = [
-  { id: 1, sport: 'Juoksu', date: '01.08.2024', distance: 5, duration: 40, iconName: 'run-fast' },
-  { id: 2, sport: 'Kävely', date: '02.08.2024', distance: 3, duration: 30, iconName: 'walk' },
-  { id: 3, sport: 'Pyöräily', date: '03.08.2024', distance: 20, duration: 60, iconName: 'bike' },
-  { id: 4, sport: 'Pyöräily', date: '04.08.2024', distance: 3, duration: 10, iconName: 'bike' },
-  { id: 5, sport: 'Pyöräily', date: '05.08.2024', distance: 5, duration: 15, iconName: 'bike' },
-]
+// const workoutHistoryData = [
+//   { id: 1, sport: 'Juoksu', date: '01.08.2024', distance: 5, duration: 40, iconName: 'run-fast' },
+//   { id: 2, sport: 'Kävely', date: '02.08.2024', distance: 3, duration: 30, iconName: 'walk' },
+//   { id: 3, sport: 'Pyöräily', date: '03.08.2024', distance: 20, duration: 60, iconName: 'bike' },
+//   { id: 4, sport: 'Pyöräily', date: '04.08.2024', distance: 3, duration: 10, iconName: 'bike' },
+//   { id: 5, sport: 'Pyöräily', date: '05.08.2024', distance: 5, duration: 15, iconName: 'bike' },
+// ]
 
 // Alert-funktio
 function CustomAlert({ title, message }) {
@@ -40,6 +41,8 @@ export default function AddWorkoutScreen({ navigation }) {
   const [time, setTime] = useState('');
   const [date, setDate] = useState('');
 
+  // tuodaan historydata contexstista
+  const { workoutHistoryData, setWorkoutHistoryData } = useContext(HistoryDataContext)
 
   //funktio, jolla korvataan pilkut pisteiksi
   const formatInputValues = (value) => {
@@ -86,10 +89,13 @@ export default function AddWorkoutScreen({ navigation }) {
         date: date,
         distance: parseFloat(formattedDistance),
         duration: parseFloat(formattedTime),
-        icon: selectedExercise === 'Juoksu' ? 'run-fast' : selectedExercise === 'Kävely' ? 'walk' : 'bike',
+        iconName: selectedExercise === 'Juoksu' ? 'run-fast' : selectedExercise === 'Kävely' ? 'walk' : 'bike',
       };
 
+      console.log(newWorkout)
+
       const updatedWorkoutHistoryData = [...workoutHistoryData, newWorkout];
+      setWorkoutHistoryData(updatedWorkoutHistoryData)
       //suoritetaan navigointi
       navigation.navigate('Harjoitushistoria');
 

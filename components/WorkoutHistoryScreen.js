@@ -7,6 +7,7 @@ import CustomDivider from "./CustomDivider";
 import { useContext } from "react";
 import { HistoryDataContext } from "../contexts/WorkoutContext";
 
+
 export default function WorkoutHistoryScreen() {
   // haetaan historydata contexstista
   const historydata = useContext(HistoryDataContext)

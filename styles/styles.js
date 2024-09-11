@@ -10,9 +10,9 @@ const commonStyles = StyleSheet.create({
     justifyContent: 'center',
     padding: 16,
   },
-  buttonRow: {
-    flexDirection: 'row',
-  },
+  // buttonRow: {
+  //   flexDirection: 'row',
+  // },
   infoText: {
     justifyContent: 'center',
     paddingTop:10,
@@ -83,7 +83,6 @@ const summaryCardStyles= StyleSheet.create ({
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
-
   summaryItem: {
     alignItems: 'center',
     paddingLeft: 30,

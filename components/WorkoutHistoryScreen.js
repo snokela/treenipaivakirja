@@ -11,17 +11,18 @@ export default function WorkoutHistoryScreen() {
   // tuodaan historydata contexstista
   const historydata = useContext(HistoryDataContext)
   const data = historydata.workoutHistoryData
-  console.log('historiadata nyt: ' + JSON.stringify(data))
+  // console.log('historiadata nyt: ' + JSON.stringify(data))
+  // tuodaan unitit contexstista
+  const units = useContext(UnitContext);
+  const unit = units.unit
+  console.log("Nykyinen unit-arvo historyssa", unit);
 
-   // tuodaan unitit contexstista
-   const units = useContext(UnitContext);
-   const unit = units.unit
-   console.log("Nykyinen unit-arvo historyssa", unit);
-
-  //muutetaan distance yksiköiden mukaiseksi
+  //muutetaan distance yksiköiden mukaiseksi, näytetään kahden desimaalin tarkkuudella
   const convertDistance = (distance) => {
-    return(
-    unit === 'km' ? distance : parseFloat((distance * 0.62137119).toFixed(2))
+    return (
+      unit === 'km'
+        ? parseFloat(distance.toFixed(2))
+        : parseFloat((distance * 0.62137119).toFixed(2))
     );
   }
 
@@ -55,7 +56,7 @@ export default function WorkoutHistoryScreen() {
     <View style={workoutHistoryScreenStyles.container}>
       <SummaryCard
         sportsSum={sportsSum}
-        unit = {unit}
+        unit={unit}
       />
       <CustomDivider />
       <View style={workoutHistoryScreenStyles.flatListContainer}>

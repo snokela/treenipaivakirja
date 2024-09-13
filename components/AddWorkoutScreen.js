@@ -1,4 +1,4 @@
-import { View, TouchableWithoutFeedback, Keyboard, Alert } from "react-native";
+import { View, TouchableWithoutFeedback, Keyboard, Alert, KeyboardAvoidingView, Platform } from "react-native";
 import { commonStyles, buttonStyles, AddWorkoutScreenStyles } from "../styles/Styles";
 import CustomButton from "./CustomButton";
 import CustomSegmentedButton from "./CustomSegmentedButton";
@@ -58,7 +58,6 @@ export default function AddWorkoutScreen({ navigation }) {
     }, [])
   )
 
-  // console.log('valittu harjoitus on: ' + selectedExercise)
   function handlePress() {
     const formattedDistance = formatInputValues(distance);
     const formattedTime = formatInputValues(time);
@@ -81,7 +80,7 @@ export default function AddWorkoutScreen({ navigation }) {
         id: (workoutHistoryData.length + 1),
         sport: selectedExercise,
         date: date,
-        // tallennetaan matka AINA kilometreinä, kahden desimaalin tarkkuudella
+        // tallennetaan matka AINA kilometreinä
         distance: unit === 'km'
           ? parseFloat(formattedDistance)
           : parseFloat(formattedDistance * 1.609344),
@@ -92,8 +91,6 @@ export default function AddWorkoutScreen({ navigation }) {
             ? 'walk'
             : 'bike',
       };
-
-      // console.log(newWorkout)
 
       const updatedWorkoutHistoryData = [...workoutHistoryData, newWorkout];
       setWorkoutHistoryData(updatedWorkoutHistoryData)

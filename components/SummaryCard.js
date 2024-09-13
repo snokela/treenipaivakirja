@@ -14,7 +14,7 @@ export default function SummaryCard({ sportsSum }) {
           size={25}
           style={summaryCardStyles.summaryIcon}
         />
-        <Text>{distance} {unit === 'km' ? 'km' : 'mailia'}</Text>
+        <Text>{distance} {unit === 'km' ? 'km' : 'mi'}</Text>
       </View>
     );
   }

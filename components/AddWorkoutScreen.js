@@ -117,7 +117,7 @@ export default function AddWorkoutScreen({ navigation }) {
           <View style={AddWorkoutScreenStyles.distanceInput}>
             <CustomTextInput
               value={distance}
-              label={unit === 'km' ? 'Matka/km' : 'Matka/maili'}
+              label={unit === 'km' ? 'Matka/km' : 'Matka/mi'}
               setValue={setDistance}
             />
           </View>

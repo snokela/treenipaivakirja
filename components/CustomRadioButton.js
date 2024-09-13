@@ -22,7 +22,7 @@ export default function CustomRadioButton({ setValue, value }) {
               value='miles'
               color={customRadioButtonStyles.radioColor.color}
             />
-            <Text style={customRadioButtonStyles.radioText}>Mailit</Text>
+            <Text style={customRadioButtonStyles.radioText}>Mailit (mi)</Text>
           </View>
         </RadioButton.Group>
       </View>

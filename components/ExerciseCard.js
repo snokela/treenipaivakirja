@@ -21,7 +21,7 @@ export default function ExerciseCard({ iconName, date, distance, duration, unit 
               </Icon>
               <Text style={exerciseCardStyles.rowContainerText}>{ date }</Text>
             </View>
-            <Text>Matka: { distance } {unit === 'km' ? 'km' : 'mailia'}</Text>
+            <Text>Matka: { distance } {unit === 'km' ? 'km' : 'mi'}</Text>
             <Text>Aika: { duration } min</Text>
           </View>
         </Card.Content>

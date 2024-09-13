@@ -1,5 +1,5 @@
 // import { StatusBar } from 'expo-status-bar';
-import BottomNav from './components/BottomNav.js';
+import AppNavigation from './components/AppNavigation.js';
 import { Provider as PaperProvider } from 'react-native-paper';
 import theme from './styles/Theme.js'
 import { HistoryDataContext, UnitContext } from './contexts/WorkoutContext.js';
@@ -21,7 +21,7 @@ export default function App() {
     <HistoryDataContext.Provider value={{ workoutHistoryData, setWorkoutHistoryData }}>
       <UnitContext.Provider value={{ unit, setUnit }}>
         <PaperProvider theme={theme}>
-          <BottomNav />
+          <AppNavigation />
           {/* <StatusBar style="auto" /> */}
         </PaperProvider>
       </UnitContext.Provider>

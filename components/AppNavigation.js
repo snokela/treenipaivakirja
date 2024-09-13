@@ -14,7 +14,7 @@ const ADDWORKOUT = 'Harjoituksen lisääminen';
 const WORKOUTHISTORY = 'Harjoitushistoria';
 const SETTINGS = 'Asetukset';
 
-export default function BottomNav() {
+export default function AppNavigation() {
 
   return (
     <NavigationContainer>

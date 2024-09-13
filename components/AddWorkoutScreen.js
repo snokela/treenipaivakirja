@@ -104,8 +104,6 @@ export default function AddWorkoutScreen({ navigation }) {
       cleanInputValues();
     };
   }
-  //näytetään textinput kentässä matka kilometreina tai maileina unitin mukaan
-  const distanceLabel = unit === 'km' ? 'Matka/km' : 'Matka/maili';
 
   return (
     // tähän touchablewithoutfeedback, jotta iOsissa keyboard saadaan koskettamalla poistumaan
@@ -119,7 +117,7 @@ export default function AddWorkoutScreen({ navigation }) {
           <View style={AddWorkoutScreenStyles.distanceInput}>
             <CustomTextInput
               value={distance}
-              label={distanceLabel}
+              label={unit === 'km' ? 'Matka/km' : 'Matka/maili'}
               setValue={setDistance}
             />
           </View>

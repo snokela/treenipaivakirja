@@ -1,12 +1,12 @@
 import { Text, View } from "react-native";
-import { Card, Title } from "react-native-paper";
+import { Card } from "react-native-paper";
 import { summaryCardStyles, commonStyles } from "../styles/Styles";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 // summarycard saa propsina kokonaissumman 'parentkomponentiltaan'
 export default function SummaryCard({ sportsSum }) {
 
-  const SportSummaryItem = ({ distance, iconName, label }) => {
+  const SportSummaryItem = ({ distance, iconName, unit }) => {
     return (
       <View style={summaryCardStyles.summaryItem}>
         <Icon
@@ -14,7 +14,7 @@ export default function SummaryCard({ sportsSum }) {
           size={25}
           style={summaryCardStyles.summaryIcon}
         />
-        <Text>{distance} km</Text>
+        <Text>{distance} {unit === 'km' ? 'km' : 'mailia'}</Text>
       </View>
     );
   }

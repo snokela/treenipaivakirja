@@ -34,7 +34,7 @@ export default function AddWorkoutScreen({ navigation }) {
   // tuodaan historydata contexstista
   const { workoutHistoryData, setWorkoutHistoryData } = useContext(HistoryDataContext);
   // tuodaan unitit contexstista
-  const units  = useContext(UnitContext);
+  const units = useContext(UnitContext);
   const unit = units.unit
   console.log("Nykyiset yksiköt:", unit)
 
@@ -81,6 +81,7 @@ export default function AddWorkoutScreen({ navigation }) {
         id: (workoutHistoryData.length + 1),
         sport: selectedExercise,
         date: date,
+        // tallennetaan matka AINA kilometreinä
         distance: unit === 'km'
           ? parseFloat(formattedDistance.toFixed(2))
           : parseFloat((formattedDistance * 1.609344).toFixed(2)),
@@ -88,8 +89,8 @@ export default function AddWorkoutScreen({ navigation }) {
         iconName: selectedExercise === 'run'
           ? 'run-fast'
           : selectedExercise === 'walk'
-          ? 'walk'
-          : 'bike',
+            ? 'walk'
+            : 'bike',
       };
 
       // console.log(newWorkout)
@@ -103,7 +104,8 @@ export default function AddWorkoutScreen({ navigation }) {
       cleanInputValues();
     };
   }
-
+  //näytetään textinput kentässä matka kilometreina tai maileina unitin mukaan
+  const distanceLabel = unit === 'km' ? 'Matka/km' : 'Matka/maili';
 
   return (
     // tähän touchablewithoutfeedback, jotta iOsissa keyboard saadaan koskettamalla poistumaan
@@ -117,7 +119,7 @@ export default function AddWorkoutScreen({ navigation }) {
           <View style={AddWorkoutScreenStyles.distanceInput}>
             <CustomTextInput
               value={distance}
-              label='Matka km/miles'
+              label={distanceLabel}
               setValue={setDistance}
             />
           </View>

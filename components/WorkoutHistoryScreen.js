@@ -18,10 +18,17 @@ export default function WorkoutHistoryScreen() {
    const unit = units.unit
    console.log("Nykyinen unit-arvo historyssa", unit);
 
+  //muutetaan distance yksiköiden mukaiseksi
+  const convertDistance = (distance) => {
+    return(
+    unit === 'km' ? distance : parseFloat((distance * 0.62137119).toFixed(2))
+    );
+  }
+
   function calculateSportSum(data, sport) {
     return data
       .filter(item => item.sport === sport)
-      .reduce((sum, item) => sum + item.distance, 0);
+      .reduce((sum, item) => sum + convertDistance(item.distance), 0);
   }
 
   const sportsSum = {
@@ -37,7 +44,7 @@ export default function WorkoutHistoryScreen() {
       <ExerciseCard
         iconName={item.iconName}
         date={item.date}
-        distance={item.distance}
+        distance={convertDistance(item.distance)}
         duration={item.duration}
         unit={unit}
       />

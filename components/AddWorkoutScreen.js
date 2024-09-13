@@ -81,10 +81,10 @@ export default function AddWorkoutScreen({ navigation }) {
         id: (workoutHistoryData.length + 1),
         sport: selectedExercise,
         date: date,
-        // tallennetaan matka AINA kilometreinä
+        // tallennetaan matka AINA kilometreinä, kahden desimaalin tarkkuudella
         distance: unit === 'km'
-          ? parseFloat(formattedDistance.toFixed(2))
-          : parseFloat((formattedDistance * 1.609344).toFixed(2)),
+          ? parseFloat(formattedDistance)
+          : parseFloat(formattedDistance * 1.609344),
         duration: parseFloat(formattedTime),
         iconName: selectedExercise === 'run'
           ? 'run-fast'

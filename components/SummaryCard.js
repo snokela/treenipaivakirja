@@ -4,9 +4,10 @@ import { summaryCardStyles, commonStyles } from "../styles/Styles";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 // summarycard saa propsina kokonaissumman 'parentkomponentiltaan'
-export default function SummaryCard({ sportsSum }) {
+export default function SummaryCard({ sportsSum, unit }) {
 
-  const SportSummaryItem = ({ distance, iconName, unit }) => {
+  const SportSummaryItem = ({ distance, iconName }) => {
+    console.log('unit summarycardissa: ', unit)
     return (
       <View style={summaryCardStyles.summaryItem}>
         <Icon

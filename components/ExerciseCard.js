@@ -3,7 +3,7 @@ import { Card } from "react-native-paper";
 import { summaryCardStyles, commonStyles, exerciseCardStyles } from "../styles/Styles";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
-export default function ExerciseCard({ iconName, date, distance, duration }) {
+export default function ExerciseCard({ iconName, date, distance, duration, unit }) {
   return (
     <View style={commonStyles.container}>
       <Card
@@ -21,7 +21,7 @@ export default function ExerciseCard({ iconName, date, distance, duration }) {
               </Icon>
               <Text style={exerciseCardStyles.rowContainerText}>{ date }</Text>
             </View>
-            <Text>Matka: { distance } km</Text>
+            <Text>Matka: { distance } {unit === 'km' ? 'km' : 'mailia'}</Text>
             <Text>Aika: { duration } min</Text>
           </View>
         </Card.Content>

@@ -50,7 +50,6 @@ export default function WorkoutHistoryScreen() {
       <SummaryCard
         sportsSum={sportsSum}
         unit = {unit}
-      //myös yksiköt täytyy siirtää summarycardiin
       />
       <CustomDivider />
       <View style={workoutHistoryScreenStyles.flatListContainer}>

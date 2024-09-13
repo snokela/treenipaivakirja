@@ -7,7 +7,7 @@ import CustomDivider from "./CustomDivider";
 import { useCallback, useContext, useState } from "react";
 import CustomCalendar from "./CustomCalendar";
 import { useFocusEffect } from "@react-navigation/native";
-import { HistoryDataContext } from "../contexts/WorkoutContext";
+import { HistoryDataContext, UnitContext } from "../contexts/WorkoutContext";
 
 // Alert-funktio
 function CustomAlert({ title, message }) {
@@ -32,7 +32,11 @@ export default function AddWorkoutScreen({ navigation }) {
   const [time, setTime] = useState('');
   const [date, setDate] = useState('');
   // tuodaan historydata contexstista
-  const { workoutHistoryData, setWorkoutHistoryData } = useContext(HistoryDataContext)
+  const { workoutHistoryData, setWorkoutHistoryData } = useContext(HistoryDataContext);
+  // tuodaan unitit contexstista
+  const units  = useContext(UnitContext);
+  const unit = units.unit
+  console.log("Nykyiset yksiköt:", unit)
 
   //funktio, jolla korvataan pilkut pisteiksi
   const formatInputValues = (value) => {
@@ -54,7 +58,7 @@ export default function AddWorkoutScreen({ navigation }) {
     }, [])
   )
 
-  console.log('valittu harjoitus on: ' + selectedExercise)
+  // console.log('valittu harjoitus on: ' + selectedExercise)
   function handlePress() {
     const formattedDistance = formatInputValues(distance);
     const formattedTime = formatInputValues(time);
@@ -77,12 +81,18 @@ export default function AddWorkoutScreen({ navigation }) {
         id: (workoutHistoryData.length + 1),
         sport: selectedExercise,
         date: date,
-        distance: parseFloat(formattedDistance),
+        distance: unit === 'km'
+          ? parseFloat(formattedDistance.toFixed(2))
+          : parseFloat((formattedDistance * 1.609344).toFixed(2)),
         duration: parseFloat(formattedTime),
-        iconName: selectedExercise === 'run' ? 'run-fast' : selectedExercise === 'walk' ? 'walk' : 'bike',
+        iconName: selectedExercise === 'run'
+          ? 'run-fast'
+          : selectedExercise === 'walk'
+          ? 'walk'
+          : 'bike',
       };
 
-      console.log(newWorkout)
+      // console.log(newWorkout)
 
       const updatedWorkoutHistoryData = [...workoutHistoryData, newWorkout];
       setWorkoutHistoryData(updatedWorkoutHistoryData)
@@ -93,6 +103,7 @@ export default function AddWorkoutScreen({ navigation }) {
       cleanInputValues();
     };
   }
+
 
   return (
     // tähän touchablewithoutfeedback, jotta iOsissa keyboard saadaan koskettamalla poistumaan
@@ -106,7 +117,7 @@ export default function AddWorkoutScreen({ navigation }) {
           <View style={AddWorkoutScreenStyles.distanceInput}>
             <CustomTextInput
               value={distance}
-              label='Matka km/mails'
+              label='Matka km/miles'
               setValue={setDistance}
             />
           </View>

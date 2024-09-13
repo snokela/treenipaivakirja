@@ -19,7 +19,7 @@ export default function CustomRadioButton({ setValue, value }) {
           </View>
           <View style={customRadioButtonStyles.radioStyle}>
             <RadioButton
-              value='mail'
+              value='miles'
               color={customRadioButtonStyles.radioColor.color}
             />
             <Text style={customRadioButtonStyles.radioText}>Mailit</Text>

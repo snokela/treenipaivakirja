@@ -51,7 +51,8 @@ const navStyles = StyleSheet.create ({
   },
   tabBarStyle: {
     backgroundColor: '#a2d9dc',
-    // padding:10,
+    // paddingTop:15,
+    height: 90,
   },
   tabBarActiveTintColor: '#cfeff1',
   tabBarInactiveTintColor: 'black'

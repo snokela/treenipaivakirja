@@ -36,7 +36,8 @@ export default function AppNavigation() {
             tabBarIcon: ({ color }) => (
               <Icon name="home" color={color} size={24} />
             ),
-            tabBarLabel: () => null,
+            // tabBarLabel: () => null,
+            tabBarLabel: 'Etusivu'
           }}
         />
         <Tab.Screen
@@ -46,7 +47,8 @@ export default function AppNavigation() {
             tabBarIcon: ({ color }) => (
               <Icon name="plus-circle-outline" color={color} size={24} />
             ),
-            tabBarLabel: () => null,
+            // tabBarLabel: () => null,
+            tabBarLabel: 'Lisää',
           }}
         />
         <Tab.Screen
@@ -56,7 +58,8 @@ export default function AppNavigation() {
             tabBarIcon: ({ color }) => (
               <Icon name="calendar-month-outline" color={color} size={24} />
             ),
-            tabBarLabel: () => null,
+            // tabBarLabel: () => null,
+            tabBarLabel: 'Historia',
           }}
         />
         <Tab.Screen
@@ -66,7 +69,8 @@ export default function AppNavigation() {
             tabBarIcon: ({ color }) => (
               <Icon name="cog-outline" color={color} size={24} />
             ),
-            tabBarLabel: () => null,
+            // tabBarLabel: () => null,
+            tabBarLabel: 'Asetukset',
           }}
         />
       </Tab.Navigator>

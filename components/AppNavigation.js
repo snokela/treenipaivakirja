@@ -32,11 +32,18 @@ export default function AppNavigation() {
           name="Home"
           component={HomeScreen}
           options={{
-            headerTitle: () => <CustomHeaderTitle />,
+            headerTitle: () =>
+              <CustomHeaderTitle
+                title={'Treenipäiväkirja'}
+                subtitle={'- Sinä pystyt siihen! -'}
+              />,
             tabBarIcon: ({ color }) => (
-              <Icon name="home" color={color} size={24} />
+              <Icon
+                name="home"
+                color={color}
+                size={24}
+              />
             ),
-            // tabBarLabel: () => null,
             tabBarLabel: 'Etusivu'
           }}
         />
@@ -45,9 +52,12 @@ export default function AppNavigation() {
           component={AddWorkoutScreen}
           options={{
             tabBarIcon: ({ color }) => (
-              <Icon name="plus-circle-outline" color={color} size={24} />
+              <Icon
+                name="plus-circle-outline"
+                color={color}
+                size={24}
+              />
             ),
-            // tabBarLabel: () => null,
             tabBarLabel: 'Lisää',
           }}
         />
@@ -56,9 +66,12 @@ export default function AppNavigation() {
           component={WorkoutHistoryScreen}
           options={{
             tabBarIcon: ({ color }) => (
-              <Icon name="calendar-month-outline" color={color} size={24} />
+              <Icon
+                name="calendar-month-outline"
+                color={color}
+                size={24}
+              />
             ),
-            // tabBarLabel: () => null,
             tabBarLabel: 'Historia',
           }}
         />
@@ -67,9 +80,12 @@ export default function AppNavigation() {
           component={SettingsScreen}
           options={{
             tabBarIcon: ({ color }) => (
-              <Icon name="cog-outline" color={color} size={24} />
+              <Icon
+                name="cog-outline"
+                color={color}
+                size={24}
+              />
             ),
-            // tabBarLabel: () => null,
             tabBarLabel: 'Asetukset',
           }}
         />

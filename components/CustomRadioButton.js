@@ -15,7 +15,7 @@ export default function CustomRadioButton({ setValue, value }) {
               value='km'
               color={customRadioButtonStyles.radioColor.color}
             />
-            <Text style={customRadioButtonStyles.radioText}>Kilometrit</Text>
+            <Text style={customRadioButtonStyles.radioText}>Kilometrit (km)</Text>
           </View>
           <View style={customRadioButtonStyles.radioStyle}>
             <RadioButton

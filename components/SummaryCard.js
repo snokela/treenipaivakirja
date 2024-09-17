@@ -1,7 +1,6 @@
 import { Text, View } from "react-native";
 import { Avatar, Card } from "react-native-paper";
 import { summaryCardStyles, commonStyles } from "../styles/Styles";
-// import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 // summarycard saa propsina kokonaissumman 'parentkomponentiltaan'
 export default function SummaryCard({ sportsSum, unit }) {
@@ -10,11 +9,6 @@ export default function SummaryCard({ sportsSum, unit }) {
     console.log('unit summarycardissa: ', unit)
     return (
       <View style={summaryCardStyles.summaryItem}>
-        {/* <Icon
-          name={iconName}
-          size={25}
-          style={summaryCardStyles.summaryIcon}
-        /> */}
          <Avatar.Icon
           icon={iconName}
           color="black"

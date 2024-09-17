@@ -10,9 +10,6 @@ const commonStyles = StyleSheet.create({
     justifyContent: 'center',
     padding: 16,
   },
-  // buttonRow: {
-  //   flexDirection: 'row',
-  // },
   infoText: {
     justifyContent: 'center',
     paddingTop:10,
@@ -51,7 +48,6 @@ const navStyles = StyleSheet.create ({
   },
   tabBarStyle: {
     backgroundColor: '#a2d9dc',
-    // paddingTop:15,
     height: 90,
   },
   tabBarActiveTintColor: '#cfeff1',
@@ -86,16 +82,11 @@ const summaryCardStyles= StyleSheet.create ({
   },
   summaryItem: {
     alignItems: 'center',
-    // paddingLeft: 30,
-    // paddingRight: 30,
   },
   cardIcon: {
     backgroundColor: '#cfeff1',
     marginBottom: 5,
   },
-  // summaryIcon: {
-  //   paddingBottom: 15,
-  // },
 })
 
 const exerciseCardStyles= StyleSheet.create ({
@@ -104,21 +95,12 @@ const exerciseCardStyles= StyleSheet.create ({
   },
   cardIcon: {
     backgroundColor: '#a2d9dc',
-  }
-  // rowContainer: {
-  //   flexDirection:'row',
-  //   textAlignVertical: 'center',
-  // },
-  // rowContainerText: {
-  //   paddingLeft: 20,
-  // },
+  },
 })
 
 const AddWorkoutScreenStyles= StyleSheet.create ({
   segmentContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignContent: 'center',
     marginTop: 40,
   },
   formContainer: {

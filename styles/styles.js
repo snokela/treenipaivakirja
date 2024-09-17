@@ -98,13 +98,16 @@ const exerciseCardStyles= StyleSheet.create ({
   exerciseCard: {
     backgroundColor: '#cfeff1',
   },
-  rowContainer: {
-    flexDirection:'row',
-    textAlignVertical: 'center',
-  },
-  rowContainerText: {
-    paddingLeft: 20,
-  },
+  cardTitle: {
+    backgroundColor: '#a2d9dc',
+  }
+  // rowContainer: {
+  //   flexDirection:'row',
+  //   textAlignVertical: 'center',
+  // },
+  // rowContainerText: {
+  //   paddingLeft: 20,
+  // },
 })
 
 const AddWorkoutScreenStyles= StyleSheet.create ({

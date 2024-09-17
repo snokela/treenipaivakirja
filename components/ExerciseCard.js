@@ -1,12 +1,28 @@
 import { Text, View } from "react-native";
-import { Card } from "react-native-paper";
+import { Avatar, Card } from "react-native-paper";
 import { summaryCardStyles, commonStyles, exerciseCardStyles } from "../styles/Styles";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import theme from "../styles/Theme";
 
 export default function ExerciseCard({ iconName, date, distance, duration, unit }) {
   return (
     <View style={commonStyles.container}>
       <Card
+        mode="elevated"
+        style={exerciseCardStyles.exerciseCard}
+      >
+        <Card.Title
+          titleVariant="titleMedium"
+          title= {date}
+          color= 'black'
+          left={props => <Avatar.Icon icon={iconName} size={40} style={exerciseCardStyles.cardTitle}/>}
+        />
+        <Card.Content>
+          <Text>Matka: { distance } {unit === 'km' ? 'km' : 'mi'}</Text>
+          <Text>Aika: { duration } min</Text>
+        </Card.Content>
+      </Card>
+      {/* <Card
         mode="elevated"
         style={exerciseCardStyles.exerciseCard}
         >
@@ -25,7 +41,7 @@ export default function ExerciseCard({ iconName, date, distance, duration, unit 
             <Text>Aika: { duration } min</Text>
           </View>
         </Card.Content>
-      </Card>
+      </Card> */}
     </View>
   );
 }

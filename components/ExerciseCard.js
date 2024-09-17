@@ -15,7 +15,7 @@ export default function ExerciseCard({ iconName, date, distance, duration, unit 
           titleVariant="titleMedium"
           title= {date}
           color= 'black'
-          left={props => <Avatar.Icon icon={iconName} size={40} style={exerciseCardStyles.cardTitle}/>}
+          left={props => <Avatar.Icon icon={iconName} color="black" size={40} style={exerciseCardStyles.cardIcon}/>}
         />
         <Card.Content>
           <Text>Matka: { distance } {unit === 'km' ? 'km' : 'mi'}</Text>

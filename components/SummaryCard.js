@@ -1,7 +1,7 @@
 import { Text, View } from "react-native";
-import { Card } from "react-native-paper";
+import { Avatar, Card } from "react-native-paper";
 import { summaryCardStyles, commonStyles } from "../styles/Styles";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+// import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 
 // summarycard saa propsina kokonaissumman 'parentkomponentiltaan'
 export default function SummaryCard({ sportsSum, unit }) {
@@ -10,10 +10,16 @@ export default function SummaryCard({ sportsSum, unit }) {
     console.log('unit summarycardissa: ', unit)
     return (
       <View style={summaryCardStyles.summaryItem}>
-        <Icon
+        {/* <Icon
           name={iconName}
           size={25}
           style={summaryCardStyles.summaryIcon}
+        /> */}
+         <Avatar.Icon
+          icon={iconName}
+          color="black"
+          size={40}
+          style={summaryCardStyles.cardIcon}
         />
         <Text>{distance} {unit === 'km' ? 'km' : 'mi'}</Text>
       </View>
@@ -34,11 +40,11 @@ export default function SummaryCard({ sportsSum, unit }) {
             iconName={'run-fast'}
             distance={sportsSum.run}
           />
-           <SportSummaryItem
+          <SportSummaryItem
             iconName={'bike'}
             distance={sportsSum.bike}
           />
-           <SportSummaryItem
+          <SportSummaryItem
             iconName={'walk'}
             distance={sportsSum.walk}
           />

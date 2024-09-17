@@ -86,19 +86,23 @@ const summaryCardStyles= StyleSheet.create ({
   },
   summaryItem: {
     alignItems: 'center',
-    paddingLeft: 30,
-    paddingRight: 30,
+    // paddingLeft: 30,
+    // paddingRight: 30,
   },
-  summaryIcon: {
-    paddingBottom: 15,
+  cardIcon: {
+    backgroundColor: '#cfeff1',
+    marginBottom: 5,
   },
+  // summaryIcon: {
+  //   paddingBottom: 15,
+  // },
 })
 
 const exerciseCardStyles= StyleSheet.create ({
   exerciseCard: {
     backgroundColor: '#cfeff1',
   },
-  cardTitle: {
+  cardIcon: {
     backgroundColor: '#a2d9dc',
   }
   // rowContainer: {

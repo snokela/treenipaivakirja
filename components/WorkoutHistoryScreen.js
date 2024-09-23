@@ -19,10 +19,14 @@ export default function WorkoutHistoryScreen() {
 
   //muutetaan distance yksiköiden mukaiseksi, näytetään kahden desimaalin tarkkuudella
   const convertDistance = (distance) => {
+    if (isNaN(distance)) {
+      return '0.00';
+    }
+
     return (
       unit === 'km'
-        ? parseFloat(distance.toFixed(2))
-        : parseFloat((distance * 0.62137119).toFixed(2))
+        ? distance.toFixed(2)
+        : (distance * 0.62137119).toFixed(2)
     );
   }
 

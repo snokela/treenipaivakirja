@@ -27,10 +27,10 @@ export default function WorkoutHistoryScreen() {
   }
 
   function calculateSportSum(data, sport) {
-    return parseFloat(data
+    return data
       .filter(item => item.sport === sport)
-      .reduce((sum, item) => sum + convertDistance(item.distance), 0)
-      .toFixed(2));
+      .reduce((sum, item) => sum + parseFloat(convertDistance(item.distance)), 0)
+      .toFixed(2);
   }
 
   const sportsSum = {

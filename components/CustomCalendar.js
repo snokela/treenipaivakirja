@@ -5,19 +5,18 @@ import { Calendar } from "react-native-calendars";
 import AntDesign from '@expo/vector-icons/AntDesign';
 import { customCalendarStyles } from "../styles/CalendarStyles";
 
-export default function CustomCalendar({ value, setDate}) {
+export default function CustomCalendar({ value, setDate }) {
   const [visible, setVisible] = useState(false);
 
-  function dateSelected(day) {
+  const dateSelected = (day) => {
     setVisible(false);
     const formatted = `${day.day}.${day.month}.${day.year}`;
-    //päivitetään pvm suoraan addworkoutScreen komponentille
+    // update date directly on the AddWorkoutScreen componen
     setDate(formatted);
   }
 
-  //asetetaan nykyinen päivä maxDate arvoksi
+  // set the current date as the maxDate value
   const today = new Date().toDateString()
-  // console.log(today)
 
   return (
     <View>
@@ -26,16 +25,16 @@ export default function CustomCalendar({ value, setDate}) {
         transparent={false}
       >
         <Calendar
-        style={customCalendarStyles.calendar}
-        onDayPress={dateSelected}
-        theme={customCalendarStyles.calendarTheme}
-        maxDate={today}
+          style={customCalendarStyles.calendar}
+          onDayPress={dateSelected}
+          theme={customCalendarStyles.calendarTheme}
+          maxDate={today}
         />
       </Modal>
       <Pressable onPress={() => setVisible(true)}>
         <View style={customCalendarStyles.calendarButtonContainer}>
-        <AntDesign name="calendar" size={18} color='#333333' />
-        <Text style={customCalendarStyles.calendarButtonText}> {value ? value : 'Valitse päivä'}</Text>
+          <AntDesign name="calendar" size={18} color='#333333' />
+          <Text style={customCalendarStyles.calendarButtonText}> {value ? value : 'Valitse päivä'}</Text>
         </View>
       </Pressable>
     </View>

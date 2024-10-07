@@ -1,4 +1,3 @@
-// import { StatusBar } from 'expo-status-bar';
 import AppNavigation from './components/AppNavigation.js';
 import { Provider as PaperProvider } from 'react-native-paper';
 import theme from './styles/Theme.js'
@@ -22,7 +21,6 @@ export default function App() {
       <UnitContext.Provider value={{ unit, setUnit }}>
         <PaperProvider theme={theme}>
           <AppNavigation />
-          {/* <StatusBar style="auto" /> */}
         </PaperProvider>
       </UnitContext.Provider>
     </HistoryDataContext.Provider>

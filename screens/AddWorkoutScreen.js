@@ -1,11 +1,11 @@
 import { View, TouchableWithoutFeedback, Keyboard, Alert, KeyboardAvoidingView, Platform } from "react-native";
 import { commonStyles, buttonStyles, AddWorkoutScreenStyles } from "../styles/Styles";
-import CustomButton from "./CustomButton";
-import CustomSegmentedButton from "./CustomSegmentedButton";
-import CustomTextInput from "./CustomTextInput";
-import CustomDivider from "./CustomDivider";
+import CustomButton from "../components/CustomButton";
+import CustomSegmentedButton from "../components/CustomSegmentedButton";
+import CustomTextInput from "../components/CustomTextInput";
+import CustomDivider from "../components/CustomDivider";
 import { useCallback, useContext, useState } from "react";
-import CustomCalendar from "./CustomCalendar";
+import CustomCalendar from "../components/CustomCalendar";
 import { useFocusEffect } from "@react-navigation/native";
 import { HistoryDataContext, UnitContext } from "../contexts/WorkoutContext";
 

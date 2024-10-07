@@ -2,8 +2,8 @@ import { View } from "react-native";
 import { workoutHistoryScreenStyles } from "../styles/Styles";
 import SummaryCard from "../components/SummaryCard";
 import { FlatList } from "react-native";
-import ExerciseCard from "./ExerciseCard";
-import CustomDivider from "./CustomDivider";
+import ExerciseCard from "../components/ExerciseCard";
+import CustomDivider from "../components/CustomDivider";
 import { useContext } from "react";
 import { HistoryDataContext, UnitContext } from "../contexts/WorkoutContext";
 

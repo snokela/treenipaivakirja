@@ -1,9 +1,9 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
-import HomeScreen from "./HomeScreen";
-import AddWorkoutScreen from "./AddWorkoutScreen";
-import SettingsScreen from "./SettingsScreen"
-import WorkoutHistoryScreen from "./WorkoutHistoryScreen";
+import HomeScreen from "../screens/HomeScreen";
+import AddWorkoutScreen from "../screens/AddWorkoutScreen";
+import SettingsScreen from "../screens/SettingsScreen"
+import WorkoutHistoryScreen from "../screens/WorkoutHistoryScreen";
 import Icon from "react-native-vector-icons/MaterialCommunityIcons";
 import CustomHeaderTitle from "./CustomHeaderTitle";
 import { navStyles } from "../styles/Styles";

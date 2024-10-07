@@ -8,16 +8,11 @@ import { useContext } from "react";
 import { HistoryDataContext, UnitContext } from "../contexts/WorkoutContext";
 
 export default function WorkoutHistoryScreen() {
-  // tuodaan historydata contexstista
   const historydata = useContext(HistoryDataContext)
   const data = historydata.workoutHistoryData
-  // console.log('historiadata nyt: ' + JSON.stringify(data))
-  // tuodaan unitit contexstista
   const units = useContext(UnitContext);
   const unit = units.unit
-  console.log("Nykyinen unit-arvo historyssa", unit);
 
-  //muutetaan distance yksiköiden mukaiseksi, näytetään kahden desimaalin tarkkuudella
   const convertDistance = (distance) => {
     if (isNaN(distance)) {
       return '0.00';
@@ -30,7 +25,7 @@ export default function WorkoutHistoryScreen() {
     );
   }
 
-  function calculateSportSum(data, sport) {
+  const calculateSportSum = (data, sport) => {
     return data
       .filter(item => item.sport === sport)
       .reduce((sum, item) => sum + parseFloat(convertDistance(item.distance)), 0)

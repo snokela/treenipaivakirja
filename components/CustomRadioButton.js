@@ -5,8 +5,6 @@ import { customRadioButtonStyles } from "../styles/Styles";
 
 export default function CustomRadioButton({ setValue, value }) {
 
-  // const [radioval, setRadioval] = useState('km');
-
   return (
       <View style={customRadioButtonStyles.radioContainer}>
         <RadioButton.Group onValueChange={newValue => setValue(newValue)} value={value}>
@@ -26,6 +24,5 @@ export default function CustomRadioButton({ setValue, value }) {
           </View>
         </RadioButton.Group>
       </View>
-    // </View>
   );
 }

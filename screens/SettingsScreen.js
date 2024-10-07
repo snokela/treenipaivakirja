@@ -5,7 +5,6 @@ import { useContext } from "react";
 import { UnitContext } from "../contexts/WorkoutContext";
 
 export default function SettingsScreen() {
-    // haetaan UnitContexstista yksiköt
     const units = useContext(UnitContext)
     console.log('unit setiingsissa: ', units.unit)
 

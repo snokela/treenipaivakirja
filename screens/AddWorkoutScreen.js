@@ -9,8 +9,8 @@ import CustomCalendar from "../components/CustomCalendar";
 import { useFocusEffect } from "@react-navigation/native";
 import { HistoryDataContext, UnitContext } from "../contexts/WorkoutContext";
 
-// Alert-funktio
-function CustomAlert({ title, message }) {
+// Alert-function
+const CustomAlert = ({ title, message })  => {
   return Alert.alert(
     title,
     message,
@@ -31,19 +31,14 @@ export default function AddWorkoutScreen({ navigation }) {
   const [distance, setDistance] = useState('');
   const [time, setTime] = useState('');
   const [date, setDate] = useState('');
-  // tuodaan historydata contexstista
   const { workoutHistoryData, setWorkoutHistoryData } = useContext(HistoryDataContext);
-  // tuodaan unitit contexstista
   const units = useContext(UnitContext);
   const unit = units.unit
-  console.log("Nykyiset yksiköt:", unit)
 
-  //funktio, jolla korvataan pilkut pisteiksi
   const formatInputValues = (value) => {
     return value.replace(',', '.');
   }
 
-  // funktio, joka nollaa input-arvot
   const cleanInputValues = () => {
     setSelectedExercise('');
     setDistance('');
@@ -51,18 +46,17 @@ export default function AddWorkoutScreen({ navigation }) {
     setDate('');
   }
 
-  //nollataaan kentät aina, kun sivu fokusoituu
   useFocusEffect(
     useCallback(() => {
       cleanInputValues();
     }, [])
   )
 
-  function handlePress() {
+  const handlePress = ()=> {
     const formattedDistance = formatInputValues(distance);
     const formattedTime = formatInputValues(time);
 
-    // validointi
+    // validation
     if (selectedExercise.trim() === '') {
       CustomAlert({ title: "Harjoitus vaaditaan", message: "Harjoitustyyppi täytyy valita ennen jatkamista." });
       return;
@@ -80,7 +74,7 @@ export default function AddWorkoutScreen({ navigation }) {
         id: (workoutHistoryData.length + 1),
         sport: selectedExercise,
         date: date,
-        // tallennetaan matka AINA kilometreinä
+        // save distance always in kilometers
         distance: unit === 'km'
           ? parseFloat(formattedDistance)
           : parseFloat(formattedDistance * 1.609344),
@@ -94,16 +88,13 @@ export default function AddWorkoutScreen({ navigation }) {
 
       const updatedWorkoutHistoryData = [...workoutHistoryData, newWorkout];
       setWorkoutHistoryData(updatedWorkoutHistoryData)
-      //suoritetaan navigointi
       navigation.navigate('Harjoitushistoria');
 
-      //tyhjennä kentät
       cleanInputValues();
     };
   }
 
   return (
-    // tähän touchablewithoutfeedback, jotta iOsissa keyboard saadaan koskettamalla poistumaan
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <View style={commonStyles.container}>
         <View style={AddWorkoutScreenStyles.segmentContainer}>
